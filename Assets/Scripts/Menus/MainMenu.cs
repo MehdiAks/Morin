@@ -23,14 +23,15 @@ public class MainMenu : MonoBehaviour
 	
 	public void ShowOptions(){
 		panel_options.SetActive(true);
+		foreach (GameObject page in options_pages)
+			{ page.SetActive(false); }
+		indice = 0;
+		Debug.Log(indice);
+		options_pages[indice].SetActive(true);
 	}
 
 	public void ShowCredits(){
 		panel_credits.SetActive(true);
-		for each (GameObject page in options_pages){
-			page.SetActive(false);	}
-		options_pages[0].SetActive(true);
-		indice = 0;
 	}
 	
 	public void UnshowOptions(){
@@ -46,20 +47,24 @@ public class MainMenu : MonoBehaviour
 	}
 
 	public void PreviousPage(){
-		if ( options_pages[indice] >= options_pages.Count - 1){
-			options_pages[indice] = 0;
+		options_pages[indice].SetActive(false);
+		if ( indice <= 0){
+			indice = options_pages.Count - 1;
 		}
 		else{
-			options_pages[indice] += 1;
+			indice -= 1;
 		}
+		options_pages[indice].SetActive(true);
 	}
 
 	public void NextPage(){
-		if ( options_pages[indice] <= 0){
-			options_pages[indice] = options_pages.Count - 1;
+		options_pages[indice].SetActive(false);
+		if ( indice >= options_pages.Count - 1){
+			indice = 0;
 		}
 		else{
-			options_pages[indice] -= 1;
+			indice += 1;
 		}
+		options_pages[indice].SetActive(true);
 	}
 }
