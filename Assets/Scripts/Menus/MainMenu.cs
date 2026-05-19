@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject panel_options;
     [SerializeField] private GameObject panel_credits;
-    [SerializeField] private GameObject options_save;
-    [SerializeField] private GameObject options_sound;
-    [SerializeField] private GameObject options_controls;
+	[SerializeField] private List<GameObject> options_pages = new List<GameObject>();
+	private int indice = 0;
 	
 	void Start(){
 		UnshowOptions();
@@ -27,6 +27,10 @@ public class MainMenu : MonoBehaviour
 
 	public void ShowCredits(){
 		panel_credits.SetActive(true);
+		for each (GameObject page in options_pages){
+			page.SetActive(false);	}
+		options_pages[0].SetActive(true);
+		indice = 0;
 	}
 	
 	public void UnshowOptions(){
@@ -42,28 +46,20 @@ public class MainMenu : MonoBehaviour
 	}
 
 	public void PreviousPage(){
-		if (options_save != null && options_save.activeSelf){
-			options_save.SetActive(false);
-			if (options_sound != null) options_sound.SetActive(true);
-		} else if (options_sound != null && options_sound.activeSelf){
-			options_sound.SetActive(false);
-			if (options_controls != null) options_controls.SetActive(true);
-		} else if (options_controls != null && options_controls.activeSelf){
-			options_controls.SetActive(false);
-			if (options_save != null) options_save.SetActive(true);
+		if ( options_pages[indice] >= options_pages.Count - 1){
+			options_pages[indice] = 0;
+		}
+		else{
+			options_pages[indice] += 1;
 		}
 	}
 
 	public void NextPage(){
-		if (options_controls != null && options_controls.activeSelf){
-			options_controls.SetActive(false);
-			if (options_sound != null) options_sound.SetActive(true);
-		} else if (options_sound != null && options_sound.activeSelf){
-			options_sound.SetActive(false);
-			if (options_save != null) options_save.SetActive(true);
-		} else if (options_save != null && options_save.activeSelf){
-			options_save.SetActive(false);
-			if (options_controls != null) options_controls.SetActive(true);
+		if ( options_pages[indice] <= 0){
+			options_pages[indice] = options_pages.Count - 1;
+		}
+		else{
+			options_pages[indice] -= 1;
 		}
 	}
 }
