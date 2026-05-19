@@ -28,9 +28,13 @@ public class PlayerController : MonoBehaviour
 
 	private CharacterController cc;
 	private float speed;
+	private bool isGrounded;
 
 	//Saut et gravité
 	[SerializeField] private float jumpHeight = 1.8f;
+	[SerializeField] private Transform groundCheck;
+	[SerializeField] private float groundCheckRadius = 0.25f;
+	[SerializeField] private LayerMask groundLayers = ~0;
 	private float gravity = -9.81f;
 	private Vector3 velocity = Vector2.zero;
 
@@ -77,6 +81,9 @@ public class PlayerController : MonoBehaviour
 		UpdateLook();
 		//Déplacement à partir des touches directionnelles
 		UpdateMove();
+
+		//On met à jour l'état au sol avant de gérer le saut
+		UpdateGroundedState();
 
 		//On applique le saut et la gravité sur le joueur
 		UpdateJump();
@@ -139,10 +146,22 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+
+	private void UpdateGroundedState()
+	{
+		if (groundCheck != null)
+		{
+			isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayers, QueryTriggerInteraction.Ignore);
+			return;
+		}
+
+		isGrounded = cc.isGrounded;
+	}
+
 	private void UpdateJump()
 	{
 		//Si le joueur appuie sur espace en étant au sol, on lance le saut
-		if (cc.isGrounded && controls.Player.Jump.WasPressedThisFrame())
+		if (isGrounded && controls.Player.Jump.WasPressedThisFrame())
 		{
 			velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 		}
@@ -151,7 +170,7 @@ public class PlayerController : MonoBehaviour
 	private void UpdateGravity()
     {
 		//Quand on est au sol, on reste collé au sol
-		if (cc.isGrounded && velocity.y < 0)
+		if (isGrounded && velocity.y < 0)
 		{
 			velocity.y = -2f;
 		}
