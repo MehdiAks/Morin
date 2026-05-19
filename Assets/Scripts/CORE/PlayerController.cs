@@ -29,7 +29,8 @@ public class PlayerController : MonoBehaviour
 	private CharacterController cc;
 	private float speed;
 
-	//Gravité
+	//Saut et gravité
+	[SerializeField] private float jumpHeight = 1.8f;
 	private float gravity = -9.81f;
 	private Vector3 velocity = Vector2.zero;
 
@@ -77,7 +78,8 @@ public class PlayerController : MonoBehaviour
 		//Déplacement à partir des touches directionnelles
 		UpdateMove();
 
-		//On applique la gravité sur le joueur
+		//On applique le saut et la gravité sur le joueur
+		UpdateJump();
 		UpdateGravity();
 
 		//Si le joueur se déplace, on joue des bruits de pas
@@ -134,6 +136,15 @@ public class PlayerController : MonoBehaviour
 		{
 			isRunning = false;
 			speed = walk;
+		}
+	}
+
+	private void UpdateJump()
+	{
+		//Si le joueur appuie sur espace en étant au sol, on lance le saut
+		if (cc.isGrounded && controls.Player.Jump.WasPressedThisFrame())
+		{
+			velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 		}
 	}
 
