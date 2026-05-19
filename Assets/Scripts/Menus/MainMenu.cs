@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
 	
 	void Start(){
 		UnshowOptions();
+		UnshowCredits();
 	}
 	
 // To do: change scene name to the intro
@@ -28,7 +29,11 @@ public class MainMenu : MonoBehaviour
 	public void UnshowOptions(){
 		panel_options.SetActive(false);
 	}
-	
+
+	public void UnshowCredits(){
+		panel_credits.SetActive(false);
+	}
+
 	public void QuitGame(){
 		Application.Quit();
 	}
