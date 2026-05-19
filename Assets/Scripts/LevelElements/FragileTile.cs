@@ -37,7 +37,17 @@ public class FragileTile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (hasFallen || !other.CompareTag(playerTag))
+        TryTriggerFall(other.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        TryTriggerFall(collision.gameObject);
+    }
+
+    private void TryTriggerFall(GameObject otherObject)
+    {
+        if (hasFallen || !otherObject.CompareTag(playerTag))
         {
             return;
         }
