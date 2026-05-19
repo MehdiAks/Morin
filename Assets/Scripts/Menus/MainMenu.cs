@@ -67,4 +67,20 @@ public class MainMenu : MonoBehaviour
 		}
 		options_pages[indice].SetActive(true);
 	}
+
+	public void SoundMain(){
+		//if on, turn off, if off, turn on
+	}
+
+	public void SoundVoice(){
+		//if voice track is on, turn off, if off, turn on
+	}
+
+	public void SoundFX(){
+		//if voice track is on, turn off, if off, turn on
+	}
+
+	public void SoundMusic(){
+		//if voice track is on, turn off, if off, turn on
+	}
 }
