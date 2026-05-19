@@ -1296,7 +1296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 26361901}
   m_Layer: 0
-  m_Name: 'Mur '
+  m_Name: MUR COT2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3238,7 +3238,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 388895940}
+  m_Father: {fileID: 2081172414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &79588415
 Light:
@@ -6498,7 +6498,7 @@ Transform:
   m_GameObject: {fileID: 158683038}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.33, y: 0, z: 48.460003}
+  m_LocalPosition: {x: 12.280001, y: -2.71, z: -19.93008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6520,7 +6520,7 @@ Transform:
   - {fileID: 753466450}
   - {fileID: 779159791}
   - {fileID: 126928777}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 388895940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &160080406
 PrefabInstance:
@@ -16629,7 +16629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 388321489}
   m_Layer: 0
-  m_Name: PIECE
+  m_Name: PARTIE 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16643,8 +16643,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388321488}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3147, y: -0, z: 8.46992}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16654,7 +16654,7 @@ Transform:
   - {fileID: 1060274660}
   - {fileID: 1816624156}
   - {fileID: 1396781398}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1999355357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &388375012 stripped
 Transform:
@@ -16671,7 +16671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 388895940}
   m_Layer: 0
-  m_Name: PETITE SALLE
+  m_Name: LABYRINTHE PETITE SALLE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16685,16 +16685,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388895939}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.61, y: 2.71, z: 68.39008}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.9000015, y: 2.71, z: 60.790085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2144901107}
-  - {fileID: 1454013577}
-  - {fileID: 79588414}
+  - {fileID: 2081172414}
   - {fileID: 26361901}
-  m_Father: {fileID: 0}
+  - {fileID: 158683039}
+  m_Father: {fileID: 1102302596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &389752992
 PrefabInstance:
@@ -24166,7 +24166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557280242}
   m_Layer: 0
-  m_Name: PIECE (1)
+  m_Name: PARTIE 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24180,8 +24180,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557280241}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3147, y: -0, z: 48.49}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 40.02008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24191,7 +24191,7 @@ Transform:
   - {fileID: 1764644486}
   - {fileID: 1828543183}
   - {fileID: 1317106430}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1999355357}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558490555
 GameObject:
@@ -41770,7 +41770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 975880357}
   m_Layer: 0
-  m_Name: PIECE (2)
+  m_Name: EXemple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48219,6 +48219,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8082043064125022623, guid: d3307fcd92db76241a129658726d2bae, type: 3}
   m_PrefabInstance: {fileID: 492776706}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1102302595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1102302596}
+  m_Layer: 0
+  m_Name: LABYRINTHE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1102302596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102302595}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -35.71, y: 0, z: 7.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1999355357}
+  - {fileID: 1584715756}
+  - {fileID: 388895940}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1103451973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62631,7 +62665,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 388895940}
+  m_Father: {fileID: 2081172414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1454013578
 Light:
@@ -69118,7 +69152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584715756}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: LABYRINTHE RETOUR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69132,14 +69166,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584715755}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -35.71, y: 0, z: 7.6}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1723542306}
   - {fileID: 2130927865}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1102302596}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1585600745
 PrefabInstance:
@@ -75267,7 +75301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723542306}
   m_Layer: 0
-  m_Name: PIECE (3)
+  m_Name: PARTIE 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86628,6 +86662,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8082043064125022623, guid: d3307fcd92db76241a129658726d2bae, type: 3}
   m_PrefabInstance: {fileID: 798528242}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1999355356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1999355357}
+  m_Layer: 0
+  m_Name: LABYRINTHE ALLEZ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1999355357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999355356}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 35.395298, y: 0, z: 0.86992025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 388321489}
+  - {fileID: 557280242}
+  m_Father: {fileID: 1102302596}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2000602932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90286,6 +90353,39 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &2081172413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2081172414}
+  m_Layer: 0
+  m_Name: Lumiere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2081172414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081172413}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1454013577}
+  - {fileID: 79588414}
+  m_Father: {fileID: 388895940}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2082308573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91988,7 +92088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2130927865}
   m_Layer: 0
-  m_Name: PIECE (4)
+  m_Name: PARTIE 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92911,7 +93011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2144901107}
   m_Layer: 0
-  m_Name: Sol salle 2
+  m_Name: 'SOL '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93162,9 +93262,5 @@ SceneRoots:
   - {fileID: 1220745453}
   - {fileID: 31518413}
   - {fileID: 254434750}
-  - {fileID: 388321489}
-  - {fileID: 557280242}
-  - {fileID: 1584715756}
+  - {fileID: 1102302596}
   - {fileID: 975880357}
-  - {fileID: 388895940}
-  - {fileID: 158683039}
