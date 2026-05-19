@@ -12,14 +12,13 @@ GameObject:
   - component: {fileID: 1773752068593605591}
   - component: {fileID: 7963645270345516595}
   - component: {fileID: 6184274994825551961}
-  - component: {fileID: 6471500003249810531}
-  - component: {fileID: 8605216523322769446}
+  - component: {fileID: 3933124756349891914}
   m_Layer: 0
   m_Name: CONTACT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8248795893605674555
 Transform:
@@ -108,40 +107,13 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.5, y: 0.04, z: 3.5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6471500003249810531
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336502328102063426}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &8605216523322769446
+  m_Size: {x: 3.5, y: 2.766038, z: 3.5}
+  m_Center: {x: -7.102423e-15, y: 1.363019, z: -1.2721435e-14}
+--- !u!114 &3933124756349891914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b315c94b800a4fafa005a197aad07733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FragileTile
-  tileRigidbody: {fileID: 0}
+  tileRigidbody: {fileID: 7274747081115700158}
   playerTag: Player
   delayBeforeFall: 0
   disableColliderOnFall: 1
@@ -171,14 +143,12 @@ GameObject:
   - component: {fileID: 7077579204383396977}
   - component: {fileID: 5367153581885413045}
   - component: {fileID: 7274747081115700158}
-  - component: {fileID: 3976832139337220204}
-  - component: {fileID: 8965027593952273119}
   m_Layer: 0
   m_Name: MAUVAIS SOL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7077579204381103761
 Transform:
@@ -301,37 +271,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3976832139337220204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7077579204381133489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b315c94b800a4fafa005a197aad07733, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FragileTile
-  tileRigidbody: {fileID: 0}
-  playerTag: Player
-  delayBeforeFall: 1
-  disableColliderOnFall: 1
-  destroyAfterSeconds: 5
---- !u!114 &8965027593952273119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7077579204381133489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b315c94b800a4fafa005a197aad07733, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FragileTile
-  tileRigidbody: {fileID: 0}
-  playerTag: Player
-  delayBeforeFall: 1
-  disableColliderOnFall: 1
-  destroyAfterSeconds: 5

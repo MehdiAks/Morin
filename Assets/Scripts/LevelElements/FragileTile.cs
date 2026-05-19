@@ -47,13 +47,14 @@ public class FragileTile : MonoBehaviour
 
     private void TryTriggerFall(GameObject otherObject)
     {
+        Debug.Log($"Try fall {otherObject.name} {hasFallen} {!otherObject.CompareTag(playerTag)}");
         if (hasFallen || !otherObject.CompareTag(playerTag))
         {
             return;
         }
 
         hasFallen = true;
-        Invoke(nameof(EnableFall), delayBeforeFall);
+        EnableFall();
     }
 
     private void EnableFall()

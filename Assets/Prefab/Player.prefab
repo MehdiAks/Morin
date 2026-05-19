@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 5553623224071774534}
   - component: {fileID: 6701466580116928670}
   - component: {fileID: 1746926053781152749}
+  - component: {fileID: 355123812785149658}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -212,6 +213,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ada590e8cf56b9a45a04bc85f00e682e, type: 3}
   - {fileID: 8300000, guid: d7b8ba041c59e0f4cb75e3b882bd59de, type: 3}
   - {fileID: 8300000, guid: 0eb0781a06a7be04092e8125c7b5d7f8, type: 3}
+  jumpHeight: 1.8
+  groundCheck: {fileID: 0}
+  groundCheckRadius: 0.25
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!143 &6701466580116928670
 CharacterController:
   m_ObjectHideFlags: 0
@@ -334,6 +341,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &355123812785149658
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070922399454135596}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6556323552433336257
 GameObject:
   m_ObjectHideFlags: 0
