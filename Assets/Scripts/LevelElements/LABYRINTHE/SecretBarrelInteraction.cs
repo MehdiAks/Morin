@@ -43,6 +43,7 @@ public class SecretBarrelInteraction : MonoBehaviour
 
     private void TriggerSecretWalls()
     {
+        Debug.Log("Secret barrel interacted with! Toggling secret walls.");
         for (int i = 0; i < secretWalls.Length; i++)
         {
             if (secretWalls[i] != null)
