@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
 		UnshowOptions();
 	}
 	
+// To do: change scene name to the intro
 	public void PlayGame(){
 		SceneManager.LoadScene("Level1");
 	}
