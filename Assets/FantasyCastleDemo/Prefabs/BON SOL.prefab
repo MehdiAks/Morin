@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7077579204383396977}
   - component: {fileID: 5367153581885413045}
   m_Layer: 0
-  m_Name: ground1
+  m_Name: BON SOL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
