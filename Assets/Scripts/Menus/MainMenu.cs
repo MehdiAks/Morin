@@ -83,4 +83,8 @@ public class MainMenu : MonoBehaviour
 	public void SoundMusic(){
 		//if voice track is on, turn off, if off, turn on
 	}
+
+	public void Sauvegarde(){
+		
+	}
 }
