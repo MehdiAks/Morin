@@ -14,6 +14,12 @@ public class MainMenu : MonoBehaviour
 	void Start(){
 		UnshowOptions();
 		UnshowCredits();
+		if (GameProgress.PremierOuverture){
+			GameProgress.PremierOuverture = false;
+		}
+		else{
+			GameProgress.LoadSave();
+		}
 	}
 	
 // To do: change scene name to the intro
@@ -84,11 +90,11 @@ public class MainMenu : MonoBehaviour
 		//if voice track is on, turn off, if off, turn on
 	}
 
-	public void EtatSalle(string Salle, int Valide){
+	public void EtatSalle(string Salle, bool Valide){
 		PlayerPrefs.SetInt(Salle, (Valide ? 1 : 0));
 	}
 
-	public void SauveProgression(){
+	public void Sauvegarde(){
 		EtatSalle("SalleDevinette", GameProgress.SalleDevinetteValidee);
 		EtatSalle("SalleTuyau", GameProgress.SalleTuyauValidee);
 		EtatSalle("SalleParcours", GameProgress.SalleParcoursValidee);
