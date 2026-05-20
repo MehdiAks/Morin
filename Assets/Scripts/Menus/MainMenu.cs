@@ -2,23 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject panel_options;
     [SerializeField] private GameObject panel_credits;
+	[SerializeField] private GameObject save_1;
+	[SerializeField] private GameObject save_2;
+	[SerializeField] private GameObject save_3;
+	[SerializeField] private GameObject compteur;
 	[SerializeField] private List<GameObject> options_pages = new List<GameObject>();
 	private int indice = 0;
+	public int save_compteur = 0;
 	
 	void Start(){
 		UnshowOptions();
 		UnshowCredits();
 		if (GameProgress.PremierOuverture){
-			GameProgress.PremierOuverture = false;
-		} else {
-			GameProgress.LoadSave();
-		}
+			GameProgress.PremierOuverture = false;	}
+			else {
+			GameProgress.LoadSave();	}
+	}
+
+	void Update(){
+
+// sauvegarde automatique
+	if (GameProgress.SalleDevinetteValidee) {
+		EtatSalle("SalleDevinette", true);	}
+	if (GameProgress.SalleTuyauValidee) {
+		EtatSalle("SalleTuyau", true);	}
+	if (GameProgress.SalleParcoursValidee) {
+		EtatSalle("SalleParcours", true);	}
+
 	}
 	
 // To do: change scene name to the intro
@@ -31,12 +48,33 @@ public class MainMenu : MonoBehaviour
 		foreach (GameObject page in options_pages)
 			{ page.SetActive(false); }
 		indice = 0;
-		Debug.Log(indice);
 		options_pages[indice].SetActive(true);
+
+		save_1.SetActive(false);
+		save_2.SetActive(false);
+		save_3.SetActive(false);
+		// update tracker menu sauvegarde
+		if (PlayerPrefs.GetInt("SalleDevinette") == 1) {
+			save_1.SetActive(true);
+			save_compteur += 1;	}
+			Debug.Log("Salle Devinette: " + PlayerPrefs.GetInt("SalleDevinette"));
+		if (PlayerPrefs.GetInt("SalleTuyau") == 1) {
+			save_2.SetActive(true);
+			save_compteur += 1;	}
+			Debug.Log("Salle Tuyau: " + PlayerPrefs.GetInt("SalleTuyau"));
+		if (PlayerPrefs.GetInt("SalleParcours") == 1) {
+			save_3.SetActive(true);
+			save_compteur += 1;	}
+			Debug.Log("Salle Parcours: " + PlayerPrefs.GetInt("SalleParcours"));
+		
+		Debug.Log("Compteur: " + save_compteur);
+		compteur.GetComponent<TMP_Text>().SetText("Enigmes résolues: " + save_compteur.ToString() + "/3");
 	}
+	
 
 	public void ShowCredits(){
 		panel_credits.SetActive(true);
+		
 	}
 	
 	public void UnshowOptions(){
@@ -94,8 +132,8 @@ public class MainMenu : MonoBehaviour
 	}
 
 	public void Sauvegarde(){
-		EtatSalle("SalleDevinette", (GameProgress.SalleDevinetteValidee ? 1 : 0));
-		EtatSalle("SalleTuyau", (GameProgress.SalleTuyauValidee ? 1 : 0));
-		EtatSalle("SalleParcours", (GameProgress.SalleParcoursValidee ? 1 : 0));
+		EtatSalle("SalleDevinette", GameProgress.SalleDevinetteValidee);
+		EtatSalle("SalleTuyau", GameProgress.SalleTuyauValidee);
+		EtatSalle("SalleParcours", GameProgress.SalleParcoursValidee);
 	}
 }
