@@ -20,12 +20,20 @@ public class MainMenu : MonoBehaviour
 	void Start(){
 		UnshowOptions();
 		UnshowCredits();
-		if (GameProgress.PremierOuverture){
-			GameProgress.PremierOuverture = false;	}
-			else {
-			GameProgress.LoadSave();	}
 	}
 
+	void Update(){
+
+// sauvegarde automatique
+	if (GameProgress.SalleDevinetteValidee) {
+		EtatSalle("SalleDevinette", true);	}
+	if (GameProgress.SalleTuyauValidee) {
+		EtatSalle("SalleTuyau", true);	}
+	if (GameProgress.SalleParcoursValidee) {
+		EtatSalle("SalleParcours", true);	}
+
+	}
+	
 // To do: change scene name to the intro
 	public void PlayGame(){
 		SceneManager.LoadScene("Level1");
