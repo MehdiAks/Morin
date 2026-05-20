@@ -16,8 +16,7 @@ public class MainMenu : MonoBehaviour
 		UnshowCredits();
 		if (GameProgress.PremierOuverture){
 			GameProgress.PremierOuverture = false;
-		}
-		else{
+		} else {
 			GameProgress.LoadSave();
 		}
 	}
@@ -95,8 +94,8 @@ public class MainMenu : MonoBehaviour
 	}
 
 	public void Sauvegarde(){
-		EtatSalle("SalleDevinette", GameProgress.SalleDevinetteValidee);
-		EtatSalle("SalleTuyau", GameProgress.SalleTuyauValidee);
-		EtatSalle("SalleParcours", GameProgress.SalleParcoursValidee);
+		EtatSalle("SalleDevinette", (GameProgress.SalleDevinetteValidee ? 1 : 0));
+		EtatSalle("SalleTuyau", (GameProgress.SalleTuyauValidee ? 1 : 0));
+		EtatSalle("SalleParcours", (GameProgress.SalleParcoursValidee ? 1 : 0));
 	}
 }

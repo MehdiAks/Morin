@@ -10,8 +10,8 @@ public static class GameProgress
 
 
     public static void LoadSave(){
-        SalleDevinetteValidee = PlayerPrefs.GetBool("SalleDevinette");
-        SalleTuyauValidee = PlayerPrefs.GetBool("SalleTuyau");
-        SalleParcoursValidee = PlayerPrefs.GetBool("SalleParcours");
+        SalleDevinetteValidee = (PlayerPrefs.GetInt("SalleDevinette") == 1);
+        SalleTuyauValidee = (PlayerPrefs.GetInt("SalleTuyau") == 1);
+        SalleParcoursValidee = (PlayerPrefs.GetInt("SalleParcours") == 1);
     }
 }
