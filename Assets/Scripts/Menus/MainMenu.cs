@@ -84,7 +84,13 @@ public class MainMenu : MonoBehaviour
 		//if voice track is on, turn off, if off, turn on
 	}
 
-	public void Sauvegarde(){
-		
+	public void EtatSalle(string Salle, int Valide){
+		PlayerPrefs.SetInt(Salle, (Valide ? 1 : 0));
+	}
+
+	public void SauveProgression(){
+		EtatSalle("SalleDevinette", GameProgress.SalleDevinetteValidee);
+		EtatSalle("SalleTuyau", GameProgress.SalleTuyauValidee);
+		EtatSalle("SalleParcours", GameProgress.SalleParcoursValidee);
 	}
 }
