@@ -12,6 +12,10 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField] private GameObject save_1;
 	[SerializeField] private GameObject save_2;
 	[SerializeField] private GameObject save_3;
+	[SerializeField] private GameObject main_sound_off;
+	[SerializeField] private GameObject voice_sound_off;
+	[SerializeField] private GameObject sfx_sound_off;
+	[SerializeField] private GameObject music_sound_off;
 	[SerializeField] private GameObject compteur;
 	[SerializeField] private List<GameObject> options_pages = new List<GameObject>();
 	private int indice = 0;
@@ -19,7 +23,6 @@ public class PauseMenu : MonoBehaviour
 	
 	void Start(){
 		UnshowOptions();
-		UnshowCredits();
 	}
 
 // To do: change scene name to the intro
@@ -91,19 +94,19 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	public void SoundMain(){
-		//if on, turn off, if off, turn on
+
 	}
 
 	public void SoundVoice(){
-		//if voice track is on, turn off, if off, turn on
+
 	}
 
 	public void SoundFX(){
-		//if voice track is on, turn off, if off, turn on
+
 	}
 
 	public void SoundMusic(){
-		//if voice track is on, turn off, if off, turn on
+
 	}
 
 	public void EtatSalle(string Salle, bool Valide){

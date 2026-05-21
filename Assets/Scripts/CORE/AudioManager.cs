@@ -23,12 +23,15 @@ public class AudioManager : MonoBehaviour
 	public static AudioManager instance = null;
 	[SerializeField] private AudioSource musicSource;
 	[SerializeField] private AudioSource sfxSource;
-	
+	[SerializeField] private AudioSource voiceSource;
+
 	void Awake(){
 		if (instance == null){
 			instance = this;
 		}
 	}
+
+	
 
 	public void PlaySFX(AudioClip sfx, float volume = 0.7f){
 		if (sfx != null)
