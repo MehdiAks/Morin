@@ -57,12 +57,14 @@ public class PauseMenu : MonoBehaviour
 		panel_options.SetActive(false);
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
+		Time.timeScale = 1f;
 	}
 
 	public void Pause(){
 		panel_pause.SetActive(true);
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
+		Time.timeScale = 0f;
 	}
 	
 	public void ShowOptions(){
