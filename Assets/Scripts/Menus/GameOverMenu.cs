@@ -5,7 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
-    public void goToMainMenu(){
-		SceneManager.LoadScene("MainMenu");
+	void Start(){
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+	}
+
+    public void spawnBack(){
+		SceneManager.LoadScene("SOUS TERRAIN");
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 }
