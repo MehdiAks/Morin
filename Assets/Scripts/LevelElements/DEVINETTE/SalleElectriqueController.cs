@@ -63,7 +63,7 @@ public class SalleElectriqueController : MonoBehaviour
             if (AreAllElementsCorrect())
             {
                 puzzleSolved = true;
-                GameProgress.SalleDevinetteValidee = true;
+                GameProgress.SalleTuyauValidee = true;
                 PlaySfx(solvedSfx);
                 Debug.Log("Salle Electrique validée !");
             }
