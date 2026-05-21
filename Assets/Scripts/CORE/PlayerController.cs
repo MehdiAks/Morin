@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 	public Transform cam;
 
 	//Sensibilité de la souris
-	[SerializeField] private float sensitivity = 50;
+	[SerializeField] private float sensitivity = 20;
 
 	//Pour les bruits de pas
 	[SerializeField] private AudioClip[] sfx_steps;
