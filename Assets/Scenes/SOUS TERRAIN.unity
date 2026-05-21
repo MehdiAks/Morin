@@ -11704,9 +11704,6 @@ PrefabInstance:
       addedObject: {fileID: 850936135}
     - targetCorrespondingSourceObject: {fileID: 400000, guid: 99eb208358f64d247b2294b674f35fd7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 377394521}
-    - targetCorrespondingSourceObject: {fileID: 400000, guid: 99eb208358f64d247b2294b674f35fd7, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1047375414}
     - targetCorrespondingSourceObject: {fileID: 400000, guid: 99eb208358f64d247b2294b674f35fd7, type: 3}
       insertIndex: -1
@@ -11854,6 +11851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LUMVALDEVINETTE
       objectReference: {fileID: 0}
+    - target: {fileID: 151766, guid: 731670d05affd0045a25600d2045889f, type: 3}
+      propertyPath: m_Name
+      value: Point light devi
+      objectReference: {fileID: 0}
     - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
       propertyPath: m_RootOrder
       value: 90
@@ -11922,6 +11923,11 @@ PrefabInstance:
 --- !u!4 &133805847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
+  m_PrefabInstance: {fileID: 133805846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &133805848 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 10852728, guid: 731670d05affd0045a25600d2045889f, type: 3}
   m_PrefabInstance: {fileID: 133805846}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &135774872
@@ -17627,6 +17633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LUMVALLABYRINTHE
       objectReference: {fileID: 0}
+    - target: {fileID: 151766, guid: 731670d05affd0045a25600d2045889f, type: 3}
+      propertyPath: m_Name
+      value: Point light laby
+      objectReference: {fileID: 0}
     - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
       propertyPath: m_RootOrder
       value: 94
@@ -17695,6 +17705,11 @@ PrefabInstance:
 --- !u!4 &198282005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
+  m_PrefabInstance: {fileID: 198282004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &198282006 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 10852728, guid: 731670d05affd0045a25600d2045889f, type: 3}
   m_PrefabInstance: {fileID: 198282004}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &208664983
@@ -29872,88 +29887,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 9947a6e7e8c8208469c1c86e15f5c089, type: 3}
   m_PrefabInstance: {fileID: 375035320}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &377394520
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2138746899}
-    m_Modifications:
-    - target: {fileID: 115752, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_Name
-      value: Torch (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_RootOrder
-      value: 98
-      objectReference: {fileID: 0}
-    - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 43.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.108
-      objectReference: {fileID: 0}
-    - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -26.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 10852728, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 10852728, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_Range
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 10852728, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_Intensity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 10852728, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_Lightmapping
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 10852728, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 10852728, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_BounceIntensity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 10852728, guid: 731670d05affd0045a25600d2045889f, type: 3}
-      propertyPath: m_Shadows.m_Strength
-      value: 0.204
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 731670d05affd0045a25600d2045889f, type: 3}
---- !u!4 &377394521 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
-  m_PrefabInstance: {fileID: 377394520}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &381063195
 PrefabInstance:
@@ -47709,6 +47642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LUMVALELECTRIQUE
       objectReference: {fileID: 0}
+    - target: {fileID: 151766, guid: 731670d05affd0045a25600d2045889f, type: 3}
+      propertyPath: m_Name
+      value: Point light elec
+      objectReference: {fileID: 0}
     - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
       propertyPath: m_RootOrder
       value: 90
@@ -47723,7 +47660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.009738922
+      value: 6.1
       objectReference: {fileID: 0}
     - target: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -47777,6 +47714,11 @@ PrefabInstance:
 --- !u!4 &869578370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 410932, guid: 731670d05affd0045a25600d2045889f, type: 3}
+  m_PrefabInstance: {fileID: 869578369}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &869578371 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 10852728, guid: 731670d05affd0045a25600d2045889f, type: 3}
   m_PrefabInstance: {fileID: 869578369}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &873479606
@@ -94985,18 +94927,41 @@ MonoBehaviour:
   - label: porte electrique
     doorPoint: {fileID: 1555089945}
     sceneName: SALLE ELECTRIQUE
+    requireAllRoomsValidated: 0
   - label: porte labyrinthe
     doorPoint: {fileID: 1823249849}
     sceneName: SALLE LABYRINTHE
+    requireAllRoomsValidated: 0
   - label: Porte devinette
     doorPoint: {fileID: 1210757440}
     sceneName: SALLE DEVINETTE
+    requireAllRoomsValidated: 0
   - label: porte chateau
     doorPoint: {fileID: 2095699051}
     sceneName: ACCEUIL
+    requireAllRoomsValidated: 0
   - label: Porte de fin
     doorPoint: {fileID: 1488023121}
     sceneName: GameOver
+    requireAllRoomsValidated: 1
+  labyrintheValidationLight:
+    label: labyrinthe
+    pointLight: {fileID: 198282006}
+    rangeWhenNotValidated: 0
+    rangeWhenValidated: 7
+    isValidated: 1
+  electriqueValidationLight:
+    label: electrique
+    pointLight: {fileID: 869578371}
+    rangeWhenNotValidated: 0
+    rangeWhenValidated: 7
+    isValidated: 0
+  devinetteValidationLight:
+    label: devinette
+    pointLight: {fileID: 133805848}
+    rangeWhenNotValidated: 0
+    rangeWhenValidated: 7
+    isValidated: 0
   pressECanvas: {fileID: 1515681245}
 --- !u!4 &1494353383
 Transform:
