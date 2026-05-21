@@ -9,7 +9,6 @@ public class PauseMenu : MonoBehaviour
 {
 	[SerializeField] private GameObject panel_pause;
     [SerializeField] private GameObject panel_options;
-    [SerializeField] private GameObject panel_credits;
 	[SerializeField] private GameObject save_1;
 	[SerializeField] private GameObject save_2;
 	[SerializeField] private GameObject save_3;
@@ -59,19 +58,10 @@ public class PauseMenu : MonoBehaviour
 		Debug.Log("Compteur: " + save_compteur);
 		compteur.GetComponent<TMP_Text>().SetText("Enigmes résolues: " + save_compteur.ToString() + "/3");
 	}
-	
 
-	public void ShowCredits(){
-		panel_credits.SetActive(true);
-		
-	}
 	
 	public void UnshowOptions(){
 		panel_options.SetActive(false);
-	}
-
-	public void UnshowCredits(){
-		panel_credits.SetActive(false);
 	}
 
 	public void QuitGame(){
