@@ -1479,6 +1479,9 @@ MonoBehaviour:
   - {fileID: 1494447318}
   - {fileID: 431072771}
   - {fileID: 204790632}
+  exitDoor: {fileID: 814143787}
+  exitSceneName: SOUS TERRAIN
+  requirePuzzleSolvedForExit: 0
   rotateSfx: {fileID: 0}
   solvedSfx: {fileID: 0}
   sfxVolume: 0.7
@@ -7633,6 +7636,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7077579204381103761, guid: 3a7eac608ed6941a288816a7e0714b71, type: 3}
   m_PrefabInstance: {fileID: 813254226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &814143787 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4718715948799430, guid: 4277c84f4eb45414089869ec9eed16a9, type: 3}
+  m_PrefabInstance: {fileID: 822391839}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &816905105
 PrefabInstance:
