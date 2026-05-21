@@ -64,8 +64,15 @@ public class AudioManager : MonoBehaviour
 	public void PlaySFX(AudioClip sfx, float volume = 0.7f){
 		if (sfx != null)
 		{
-			sfxSource.volume = volume;
-			sfxSource.PlayOneShot(sfx);
+			if (sfxSource != null)
+			{
+				float effectiveVolume = Mathf.Clamp01(sfxSource.volume * volume);
+				sfxSource.PlayOneShot(sfx, effectiveVolume);
+			}
+			else
+			{
+				Debug.LogWarning("sfxSource manquant dans AudioManager");
+			}
 		}
 		else
 		{

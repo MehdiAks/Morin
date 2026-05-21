@@ -11,14 +11,13 @@ public class PlayerController : MonoBehaviour
 	public Transform cam;
 
 	//Sensibilité de la souris
-	[SerializeField] private float sensitivity = 20;
+	[SerializeField] private float sensitivity = 80;
 
 	//Pour les bruits de pas
 	[SerializeField] private AudioClip[] sfx_steps;
 	private int num_step = 0;
 	private float step_timer = 0.0f;
 	private float max_step_timer = 0.5f;
-	private AudioSource audio_steps;
 
 	//Contrôles du joueur
 	private PlayerControls controls;
@@ -46,7 +45,6 @@ public class PlayerController : MonoBehaviour
     {
 		controls = new PlayerControls();
 		cc = GetComponent<CharacterController>();
-		audio_steps = GetComponent<AudioSource>();
 	}
 
 	void OnEnable()
@@ -204,9 +202,15 @@ public class PlayerController : MonoBehaviour
 			//Si le compteur a atteint zéro
 			if (step_timer <= 0)
 			{
-				//On joue le nouveau bruit de pas
-				audio_steps.clip = sfx_steps[num_step];
-				audio_steps.Play();
+//On joue le nouveau bruit de pas via AudioManager afin qu'il suive le volume SFX global
+		if (AudioManager.instance != null)
+		{
+			AudioManager.instance.PlaySFX(sfx_steps[num_step]);
+		}
+		else
+		{
+			Debug.LogWarning("AudioManager instance manquante pour les bruits de pas");
+		}
 
 				//On réinitialise le compteur
 				step_timer = max_step_timer;

@@ -76,7 +76,7 @@ public class SousTerrainDoorHub : MonoBehaviour
         {
             ShowPrompt();
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.H))
             {
                 TryLoadDoorScene(currentDoor);
             }
