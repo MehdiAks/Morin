@@ -44,6 +44,13 @@ public class SecretBarrelInteraction : MonoBehaviour
     private void TriggerSecretWalls()
     {
         Debug.Log("Secret barrel interacted with! Toggling secret walls.");
+
+        if (!GameProgress.SalleParcoursValidee)
+        {
+            GameProgress.SalleParcoursValidee = true;
+            GameProgress.SaveRoomValidation();
+            Debug.Log("Salle Labyrinthe validée !");
+        }
         for (int i = 0; i < secretWalls.Length; i++)
         {
             if (secretWalls[i] != null)
