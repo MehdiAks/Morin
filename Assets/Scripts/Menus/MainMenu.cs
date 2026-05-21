@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 {
 	[SerializeField] private GameObject panel_credits;
     [SerializeField] private GameObject panel_options;
+	[SerializeField] private GameObject panel_credits;
 	[SerializeField] private GameObject save_1;
 	[SerializeField] private GameObject save_2;
 //	[SerializeField] private GameObject save_3;
