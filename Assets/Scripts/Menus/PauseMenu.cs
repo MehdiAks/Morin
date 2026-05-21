@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 
-public class MainMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
+	[SerializeField] private GameObject panel_pause;
     [SerializeField] private GameObject panel_options;
     [SerializeField] private GameObject panel_credits;
 	[SerializeField] private GameObject save_1;
@@ -22,21 +23,13 @@ public class MainMenu : MonoBehaviour
 		UnshowCredits();
 	}
 
-	void Update(){
-
-// sauvegarde automatique
-	if (GameProgress.SalleDevinetteValidee) {
-		EtatSalle("SalleDevinette", true);	}
-	if (GameProgress.SalleTuyauValidee) {
-		EtatSalle("SalleTuyau", true);	}
-	if (GameProgress.SalleParcoursValidee) {
-		EtatSalle("SalleParcours", true);	}
-
-	}
-	
 // To do: change scene name to the intro
-	public void PlayGame(){
-		SceneManager.LoadScene("Level1");
+	public void ReturnToGame(){
+		panel_pause.SetActive(false);
+	}
+
+	public void Pause(){
+		panel_pause.SetActive(true);
 	}
 	
 	public void ShowOptions(){
