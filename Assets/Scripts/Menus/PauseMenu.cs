@@ -20,12 +20,16 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField] private List<GameObject> options_pages = new List<GameObject>();
 	private int indice = 0;
 	public int save_compteur = 0;
+
+	public static PauseMenu instance = null;
 	
 	void Start(){
 		UnshowOptions();
+		if (instance == null){
+			instance = this;
+		}
 	}
 
-// To do: change scene name to the intro
 	public void ReturnToGame(){
 		panel_pause.SetActive(false);
 	}
@@ -48,21 +52,16 @@ public class PauseMenu : MonoBehaviour
 		if (PlayerPrefs.GetInt("SalleDevinette") == 1) {
 			save_1.SetActive(true);
 			save_compteur += 1;	}
-			Debug.Log("Salle Devinette: " + PlayerPrefs.GetInt("SalleDevinette"));
 		if (PlayerPrefs.GetInt("SalleTuyau") == 1) {
 			save_2.SetActive(true);
 			save_compteur += 1;	}
-			Debug.Log("Salle Tuyau: " + PlayerPrefs.GetInt("SalleTuyau"));
 		if (PlayerPrefs.GetInt("SalleParcours") == 1) {
 			save_3.SetActive(true);
 			save_compteur += 1;	}
-			Debug.Log("Salle Parcours: " + PlayerPrefs.GetInt("SalleParcours"));
 		
-		Debug.Log("Compteur: " + save_compteur);
 		compteur.GetComponent<TMP_Text>().SetText("Enigmes résolues: " + save_compteur.ToString() + "/3");
 	}
 
-	
 	public void UnshowOptions(){
 		panel_options.SetActive(false);
 	}
@@ -94,7 +93,7 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	public void SoundMain(){
-
+		
 	}
 
 	public void SoundVoice(){
