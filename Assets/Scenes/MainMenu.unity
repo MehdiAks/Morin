@@ -2983,7 +2983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &611472702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6835,6 +6835,7 @@ MonoBehaviour:
   panel_options: {fileID: 2100176248}
   save_1: {fileID: 1003430540}
   save_2: {fileID: 93392551}
+  save_3: {fileID: 676097277}
   main_sound_off: {fileID: 984566020}
   sfx_sound_off: {fileID: 1073400917}
   music_sound_off: {fileID: 898866583}
@@ -8241,7 +8242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 54, y: -140}
+  m_AnchoredPosition: {x: -20, y: -140}
   m_SizeDelta: {x: 111, y: 111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1652236731
@@ -9211,7 +9212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 204, y: -140}
+  m_AnchoredPosition: {x: 130, y: -140}
   m_SizeDelta: {x: 111, y: 111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1863515852
@@ -10672,9 +10673,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9551636}
   - {fileID: 37459174}
   - {fileID: 1745098541}
+  - {fileID: 9551636}
   - {fileID: 1916880181}
   - {fileID: 693412715}
   - {fileID: 757559268}
