@@ -20,6 +20,9 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField] private List<GameObject> options_pages = new List<GameObject>();
 	private int indice = 0;
 	public int save_compteur = 0;
+	public bool sound_on = true;
+	public bool music_on = true;
+	public bool sfx_on = true;
 
 	public static PauseMenu instance = null;
 	
@@ -27,6 +30,24 @@ public class PauseMenu : MonoBehaviour
 		UnshowOptions();
 		if (instance == null){
 			instance = this;
+		}
+		AudioManager.instance.PlayMusic(AudioManager.instance.music_list.music1, AudioManager.instance.volume, true);
+	}
+
+	void Update(){
+		if (Input.GetKeyDown(KeyCode.Escape)){
+			if (panel_pause.activeSelf){
+				ReturnToGame();
+			}
+			else{
+				Pause();
+			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.P)){
+			if (!panel_pause.activeSelf){
+				Pause();
+			}
 		}
 	}
 
@@ -44,6 +65,10 @@ public class PauseMenu : MonoBehaviour
 			{ page.SetActive(false); }
 		indice = 0;
 		options_pages[indice].SetActive(true);
+
+		main_sound_off.SetActive(!sound_on);
+		sfx_sound_off.SetActive(!sfx_on);
+		music_sound_off.SetActive(!music_on);
 
 		save_1.SetActive(false);
 		save_2.SetActive(false);
@@ -93,19 +118,28 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	public void SoundMain(){
-		
+			AudioManager.instance.SetMain(sound_on);
+			sound_on = !sound_on;
+			sfx_on = !sound_on;
+			music_on = !sound_on;
+			main_sound_off.SetActive(sound_on);
+			sfx_sound_off.SetActive(sound_on);
+			music_sound_off.SetActive(sound_on);
 	}
 
-	public void SoundVoice(){
-
-	}
+	//public void SoundVoice(){
+	//}
 
 	public void SoundFX(){
-
+		AudioManager.instance.SetSFX(sfx_on);
+		sfx_on = !sfx_on;
+		sfx_sound_off.SetActive(sfx_on);
 	}
 
 	public void SoundMusic(){
-
+		AudioManager.instance.SetMusic(music_on);
+		music_on = !music_on;
+		music_sound_off.SetActive(music_on);
 	}
 
 	public void EtatSalle(string Salle, bool Valide){
