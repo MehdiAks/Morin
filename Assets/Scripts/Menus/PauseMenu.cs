@@ -54,6 +54,7 @@ public class PauseMenu : MonoBehaviour
 
 	public void ReturnToGame(){
 		panel_pause.SetActive(false);
+		panel_options.SetActive(false);
 	}
 
 	public void Pause(){

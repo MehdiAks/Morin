@@ -1057,18 +1057,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &301153965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6498,17 +6486,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f16a7dbdb149044b2bdc7c45677927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel_options: {fileID: 2100176248}
   panel_credits: {fileID: 1156974777}
+  panel_options: {fileID: 2100176248}
   save_1: {fileID: 1003430540}
   save_2: {fileID: 93392551}
-  save_3: {fileID: 676097277}
+  main_sound_off: {fileID: 984566020}
+  sfx_sound_off: {fileID: 1073400917}
+  music_sound_off: {fileID: 898866583}
   compteur: {fileID: 543335480}
   options_pages:
   - {fileID: 1745098540}
   - {fileID: 37459173}
   - {fileID: 9551635}
   save_compteur: 0
+  sound_on: 1
+  music_on: 1
+  sfx_on: 1
 --- !u!114 &1389096795
 MonoBehaviour:
   m_ObjectHideFlags: 0
