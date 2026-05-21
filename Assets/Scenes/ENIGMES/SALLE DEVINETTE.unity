@@ -17690,6 +17690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1091389945}
   - component: {fileID: 1091389944}
+  - component: {fileID: 1091389946}
   m_Layer: 0
   m_Name: OBJET 1
   m_TagString: Untagged
@@ -17727,6 +17728,27 @@ Transform:
   - {fileID: 1287144967}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1091389946
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091389943}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 1, z: 1}
+  m_Center: {x: -0.2, y: 0, z: 0}
 --- !u!1001 &1094346019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19533,7 +19555,7 @@ MonoBehaviour:
   interactionMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  interactionKey: 101
+  interactionKey: 104
   pressECanvas: {fileID: 743852511}
   puzzleElements: []
   exitDoor: {fileID: 424541505}
@@ -19551,7 +19573,7 @@ Transform:
   m_GameObject: {fileID: 1191793971}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.49529, y: 12.83, z: 26.43687}
+  m_LocalPosition: {x: 8.261, y: 11.096, z: 33.018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -76,6 +76,11 @@ public class SalleDevinetteController : MonoBehaviour
             return;
         }
 
+        if (interactedObject == null || interactedObject.IsDisabled)
+        {
+            return;
+        }
+
         if (currentStep >= orderedObjects.Length)
         {
             return;
@@ -86,6 +91,7 @@ public class SalleDevinetteController : MonoBehaviour
         if (expected == interactedObject)
         {
             currentStep++;
+            interactedObject.DisableInteraction();
             PlaySfx(goodOrderSfx);
 
             if (currentStep >= orderedObjects.Length)
@@ -97,9 +103,22 @@ public class SalleDevinetteController : MonoBehaviour
         }
         else
         {
-            currentStep = 0;
+            ResetPuzzleProgress();
             PlaySfx(badOrderSfx);
         }
+    }
+
+    private void ResetPuzzleProgress()
+    {
+        for (int i = 0; i < currentStep && i < orderedObjects.Length; i++)
+        {
+            if (orderedObjects[i] != null)
+            {
+                orderedObjects[i].EnableInteraction();
+            }
+        }
+
+        currentStep = 0;
     }
 
     private void PlaySfx(AudioClip clip)
