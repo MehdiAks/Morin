@@ -63,6 +63,7 @@ public class PauseMenu : MonoBehaviour
 		Time.timeScale = 1f;
 	}
 
+
 	public void Pause(){
 		panel_pause.SetActive(true);
 		Cursor.lockState = CursorLockMode.None;
@@ -103,7 +104,7 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	public void QuitGame(){
-		SceneManager.LoadScene("MainMenu");
+		Application.Quit();
 	}
 
 	public void PreviousPage(){
@@ -129,7 +130,10 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	public void SoundMain(){
-			AudioManager.instance.SetMain(sound_on);
+		sound_on = !sound_on;
+		sfx_on = !sound_on;
+		music_on = !sound_on;
+		AudioManager.instance.SetMain(sound_on);
 			if (sound_on) {
 				main_sound_button.GetComponent<TMP_Text>().SetText("Activé");
 				sfx_sound_button.GetComponent<TMP_Text>().SetText("Activé");
@@ -139,36 +143,33 @@ public class PauseMenu : MonoBehaviour
 				sfx_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
 				music_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
 			}
-			sound_on = !sound_on;
-			sfx_on = !sound_on;
-			music_on = !sound_on;
-			main_sound_off.SetActive(sound_on);
-			sfx_sound_off.SetActive(sound_on);
-			music_sound_off.SetActive(sound_on);
+		main_sound_off.SetActive(sound_on);
+		sfx_sound_off.SetActive(sound_on);
+		music_sound_off.SetActive(sound_on);
 	}
 
 	//public void SoundVoice(){
 	//}
 
 	public void SoundFX(){
+		sfx_on = !sfx_on;
 		AudioManager.instance.SetSFX(sfx_on);
 		if (sfx_on) {
 			sfx_sound_button.GetComponent<TMP_Text>().SetText("Activé");
 		} else {
 			sfx_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
 			}
-		sfx_on = !sfx_on;
 		sfx_sound_off.SetActive(sfx_on);
 	}
 
 	public void SoundMusic(){
+		music_on = !music_on;
 		AudioManager.instance.SetMusic(music_on);
 		if (music_on) {
 			music_sound_button.GetComponent<TMP_Text>().SetText("Activé");
 		} else {
 			music_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
 			}
-		music_on = !music_on;
 		music_sound_off.SetActive(music_on);
 	}
 
