@@ -29,6 +29,6 @@ public class ElectricalRotatableElement : MonoBehaviour
     private void ApplyRotationImmediate()
     {
         float angle = (currentPosition * 30f) + angleOffset;
-        transform.localRotation = Quaternion.Euler(angle, 0f, 0f);
+        transform.localRotation = Quaternion.Euler(0f, angle, 0f);
     }
 }

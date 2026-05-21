@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SalleElectriqueController : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class SalleElectriqueController : MonoBehaviour
     [Header("Puzzle")]
     [Tooltip("Mettre ici les 12 éléments à orienter.")]
     [SerializeField] private ElectricalRotatableElement[] puzzleElements;
+
+
+
+    [Header("Sortie")]
+    [Tooltip("Objet de la porte de sortie (ex: PORTE).")]
+    [SerializeField] private Transform exitDoor;
+    [SerializeField] private string exitSceneName;
+    [SerializeField] private bool requirePuzzleSolvedForExit = true;
 
     [Header("Audio")]
     [SerializeField] private AudioClip rotateSfx;
@@ -35,31 +44,65 @@ public class SalleElectriqueController : MonoBehaviour
 
     private void Update()
     {
-        if (puzzleSolved)
-        {
-            SetPressEVisible(false);
-            return;
-        }
+        bool canUseExit = !requirePuzzleSolvedForExit || puzzleSolved;
+        ElectricalRotatableElement lookedElement = puzzleSolved ? null : GetLookedElement();
+        bool isLookingAtExitDoor = canUseExit && IsLookingAtExitDoor();
 
-        ElectricalRotatableElement lookedElement = GetLookedElement();
-        SetPressEVisible(lookedElement != null);
+        SetPressEVisible(lookedElement != null || isLookingAtExitDoor);
 
-        if (lookedElement == null || !Input.GetKeyDown(interactionKey))
+        if (!Input.GetKeyDown(interactionKey))
         {
             return;
         }
 
-        lookedElement.RotateNextPosition();
-        PlaySfx(rotateSfx);
-
-        if (AreAllElementsCorrect())
+        if (lookedElement != null)
         {
-            puzzleSolved = true;
-            GameProgress.SalleDevinetteValidee = true;
-            PlaySfx(solvedSfx);
-            Debug.Log("Salle Electrique validée !");
-            SetPressEVisible(false);
+            lookedElement.RotateNextPosition();
+            PlaySfx(rotateSfx);
+
+            if (AreAllElementsCorrect())
+            {
+                puzzleSolved = true;
+                GameProgress.SalleDevinetteValidee = true;
+                PlaySfx(solvedSfx);
+                Debug.Log("Salle Electrique validée !");
+            }
+
+            return;
         }
+
+        if (isLookingAtExitDoor)
+        {
+            TryLoadExitScene();
+        }
+    }
+
+    private bool IsLookingAtExitDoor()
+    {
+        if (exitDoor == null || playerCamera == null)
+        {
+            return false;
+        }
+
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+
+        if (!Physics.Raycast(ray, out RaycastHit hit, interactionDistance, interactionMask))
+        {
+            return false;
+        }
+
+        return hit.transform == exitDoor || hit.transform.IsChildOf(exitDoor);
+    }
+
+    private void TryLoadExitScene()
+    {
+        if (string.IsNullOrWhiteSpace(exitSceneName))
+        {
+            Debug.LogWarning("SalleElectriqueController: exitSceneName est vide.");
+            return;
+        }
+
+        SceneManager.LoadScene(exitSceneName);
     }
 
     private ElectricalRotatableElement GetLookedElement()
