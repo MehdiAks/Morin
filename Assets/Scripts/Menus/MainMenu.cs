@@ -7,15 +7,22 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+	[SerializeField] private GameObject panel_pause;
     [SerializeField] private GameObject panel_options;
-    [SerializeField] private GameObject panel_credits;
 	[SerializeField] private GameObject save_1;
 	[SerializeField] private GameObject save_2;
-	[SerializeField] private GameObject save_3;
+//	[SerializeField] private GameObject save_3;
+	[SerializeField] private GameObject main_sound_off;
+//	[SerializeField] private GameObject voice_sound_off;
+	[SerializeField] private GameObject sfx_sound_off;
+	[SerializeField] private GameObject music_sound_off;
 	[SerializeField] private GameObject compteur;
 	[SerializeField] private List<GameObject> options_pages = new List<GameObject>();
 	private int indice = 0;
 	public int save_compteur = 0;
+	public bool sound_on = true;
+	public bool music_on = true;
+	public bool sfx_on = true;
 	
 	void Start(){
 		UnshowOptions();
@@ -37,25 +44,25 @@ public class MainMenu : MonoBehaviour
 		indice = 0;
 		options_pages[indice].SetActive(true);
 
+		main_sound_off.SetActive(!sound_on);
+		sfx_sound_off.SetActive(!sfx_on);
+		music_sound_off.SetActive(!music_on);
+
 		save_1.SetActive(false);
 		save_2.SetActive(false);
-		save_3.SetActive(false);
+//		save_3.SetActive(false);
 		// update tracker menu sauvegarde
-		if (PlayerPrefs.GetInt("SalleDevinette") == 1) {
+		if (PlayerPrefs.GetInt("SalleParcours") == 1) {
 			save_1.SetActive(true);
 			save_compteur += 1;	}
-			Debug.Log("Salle Devinette: " + PlayerPrefs.GetInt("SalleDevinette"));
 		if (PlayerPrefs.GetInt("SalleTuyau") == 1) {
 			save_2.SetActive(true);
 			save_compteur += 1;	}
-			Debug.Log("Salle Tuyau: " + PlayerPrefs.GetInt("SalleTuyau"));
-		if (PlayerPrefs.GetInt("SalleParcours") == 1) {
-			save_3.SetActive(true);
-			save_compteur += 1;	}
-			Debug.Log("Salle Parcours: " + PlayerPrefs.GetInt("SalleParcours"));
+//		if (PlayerPrefs.GetInt("SalleDevinette") == 1) {
+//			save_3.SetActive(true);
+//			save_compteur += 1;	}
 		
-		Debug.Log("Compteur: " + save_compteur);
-		compteur.GetComponent<TMP_Text>().SetText("Enigmes résolues: " + save_compteur.ToString() + "/3");
+		compteur.GetComponent<TMP_Text>().SetText("Enigmes résolues: " + save_compteur.ToString() + "/2");
 	}
 	
 
@@ -99,19 +106,28 @@ public class MainMenu : MonoBehaviour
 	}
 
 	public void SoundMain(){
-		//if on, turn off, if off, turn on
+			AudioManager.instance.SetMain(sound_on);
+			sound_on = !sound_on;
+			sfx_on = !sound_on;
+			music_on = !sound_on;
+			main_sound_off.SetActive(sound_on);
+			sfx_sound_off.SetActive(sound_on);
+			music_sound_off.SetActive(sound_on);
 	}
 
-	public void SoundVoice(){
-		//if voice track is on, turn off, if off, turn on
-	}
+	//public void SoundVoice(){
+	//}
 
 	public void SoundFX(){
-		//if voice track is on, turn off, if off, turn on
+		AudioManager.instance.SetSFX(sfx_on);
+		sfx_on = !sfx_on;
+		sfx_sound_off.SetActive(sfx_on);
 	}
 
 	public void SoundMusic(){
-		//if voice track is on, turn off, if off, turn on
+		AudioManager.instance.SetMusic(music_on);
+		music_on = !music_on;
+		music_sound_off.SetActive(music_on);
 	}
 
 	public void EtatSalle(string Salle, bool Valide){

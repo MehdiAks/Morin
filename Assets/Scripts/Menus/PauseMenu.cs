@@ -11,9 +11,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject panel_options;
 	[SerializeField] private GameObject save_1;
 	[SerializeField] private GameObject save_2;
-	[SerializeField] private GameObject save_3;
+//	[SerializeField] private GameObject save_3;
 	[SerializeField] private GameObject main_sound_off;
-	[SerializeField] private GameObject voice_sound_off;
+//	[SerializeField] private GameObject voice_sound_off;
 	[SerializeField] private GameObject sfx_sound_off;
 	[SerializeField] private GameObject music_sound_off;
 	[SerializeField] private GameObject compteur;
@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour
 		if (instance == null){
 			instance = this;
 		}
+		//REMOVE ON INTEGRATION: TEST ONLY
 		AudioManager.instance.PlayMusic(AudioManager.instance.music_list.music1, AudioManager.instance.volume, true);
 	}
 
@@ -72,19 +73,19 @@ public class PauseMenu : MonoBehaviour
 
 		save_1.SetActive(false);
 		save_2.SetActive(false);
-		save_3.SetActive(false);
+//		save_3.SetActive(false);
 		// update tracker menu sauvegarde
-		if (PlayerPrefs.GetInt("SalleDevinette") == 1) {
+		if (PlayerPrefs.GetInt("SalleParcours") == 1) {
 			save_1.SetActive(true);
 			save_compteur += 1;	}
 		if (PlayerPrefs.GetInt("SalleTuyau") == 1) {
 			save_2.SetActive(true);
 			save_compteur += 1;	}
-		if (PlayerPrefs.GetInt("SalleParcours") == 1) {
-			save_3.SetActive(true);
-			save_compteur += 1;	}
+//		if (PlayerPrefs.GetInt("SalleDevinette") == 1) {
+//			save_3.SetActive(true);
+//			save_compteur += 1;	}
 		
-		compteur.GetComponent<TMP_Text>().SetText("Enigmes résolues: " + save_compteur.ToString() + "/3");
+		compteur.GetComponent<TMP_Text>().SetText("Enigmes résolues: " + save_compteur.ToString() + "/2");
 	}
 
 	public void UnshowOptions(){
@@ -92,7 +93,7 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	public void QuitGame(){
-		Application.Quit();
+		SceneManager.LoadScene("MainMenu");
 	}
 
 	public void PreviousPage(){
@@ -147,7 +148,7 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	public void Sauvegarde(){
-		EtatSalle("SalleDevinette", GameProgress.SalleDevinetteValidee);
+	//	EtatSalle("SalleDevinette", GameProgress.SalleDevinetteValidee);
 		EtatSalle("SalleTuyau", GameProgress.SalleTuyauValidee);
 		EtatSalle("SalleParcours", GameProgress.SalleParcoursValidee);
 	}
