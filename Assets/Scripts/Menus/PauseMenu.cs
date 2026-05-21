@@ -74,9 +74,9 @@ public class PauseMenu : MonoBehaviour
 		indice = 0;
 		options_pages[indice].SetActive(true);
 
-		main_sound_off.SetActive(!sound_on);
-		sfx_sound_off.SetActive(!sfx_on);
-		music_sound_off.SetActive(!music_on);
+		main_sound_off.SetActive(sound_on);
+		sfx_sound_off.SetActive(sfx_on);
+		music_sound_off.SetActive(music_on);
 
 		save_1.SetActive(false);
 		save_2.SetActive(false);
