@@ -30,7 +30,7 @@ public class SalleDevinetteController : MonoBehaviour
         }
 
         SetPressEVisible(false);
-        GameProgress.SalleDevinetteValidee = false;
+        GameProgress.LoadSave();
     }
 
     private void Update()
@@ -97,6 +97,7 @@ public class SalleDevinetteController : MonoBehaviour
             if (currentStep >= orderedObjects.Length)
             {
                 GameProgress.SalleDevinetteValidee = true;
+                GameProgress.SaveRoomValidation();
                 Debug.Log("Salle Devinette validée !");
                 SetPressEVisible(false);
             }
