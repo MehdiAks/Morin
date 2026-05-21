@@ -31,6 +31,8 @@ public class PauseMenu : MonoBehaviour
 	
 	void Start(){
 		UnshowOptions();
+		panel_pause.SetActive(false);
+		Time.timeScale = 1f;
 		if (instance == null){
 			instance = this;
 		}
