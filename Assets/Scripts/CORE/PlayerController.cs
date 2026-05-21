@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {   
@@ -37,6 +38,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private LayerMask groundLayers = ~0;
 	private float gravity = -9.81f;
 	private Vector3 velocity = Vector2.zero;
+	[SerializeField] private float fallDeathY = -5f;
+	[SerializeField] private string gameOverSceneName = "GameOver";
+	private bool isGameOverLoading = false;
 
 	void Awake()
     {
@@ -88,6 +92,7 @@ public class PlayerController : MonoBehaviour
 		//On applique le saut et la gravité sur le joueur
 		UpdateJump();
 		UpdateGravity();
+		CheckFallDeath();
 
 		//Si le joueur se déplace, on joue des bruits de pas
 		UpdateFootstepSounds();
@@ -178,6 +183,17 @@ public class PlayerController : MonoBehaviour
 		//Si on ne touche pas le sol, on chute vers le bas
 		velocity.y += gravity * Time.deltaTime;
 		cc.Move(velocity * Time.deltaTime);
+	}
+
+	private void CheckFallDeath()
+	{
+		if (isGameOverLoading || transform.position.y > fallDeathY)
+		{
+			return;
+		}
+
+		isGameOverLoading = true;
+		SceneManager.LoadScene(gameOverSceneName);
 	}
 
 	private void UpdateFootstepSounds()
