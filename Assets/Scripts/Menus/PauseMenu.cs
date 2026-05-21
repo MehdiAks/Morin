@@ -55,10 +55,14 @@ public class PauseMenu : MonoBehaviour
 	public void ReturnToGame(){
 		panel_pause.SetActive(false);
 		panel_options.SetActive(false);
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 	}
 
 	public void Pause(){
 		panel_pause.SetActive(true);
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 	}
 	
 	public void ShowOptions(){
