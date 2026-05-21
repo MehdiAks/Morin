@@ -21,9 +21,11 @@ public class AudioManager : MonoBehaviour
 	}
 
 	public static AudioManager instance = null;
-	[SerializeField] private AudioSource musicSource;
-	[SerializeField] private AudioSource sfxSource;
-	[SerializeField] private AudioSource voiceSource;
+	[SerializeField] public AudioSource musicSource;
+	[SerializeField] public AudioSource sfxSource;
+	[SerializeField] public AudioSource voiceSource;
+
+	public float volume = 0.6f;
 
 	void Awake(){
 		if (instance == null){
@@ -31,7 +33,33 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
-	
+	public void SetMain(bool sound){
+		if (sound) {
+			volume = 0.6f;
+		} else {
+			volume = 0f;
+		}
+		musicSource.volume = volume;
+		sfxSource.volume = volume;
+	}
+
+	public void SetSFX(bool sound){
+		if (sound) {
+			volume = 0.6f;
+		} else {
+			volume = 0f;
+		}
+		sfxSource.volume = volume;
+	}
+
+	public void SetMusic(bool sound){
+		if (sound) {
+			volume = 0.6f;
+		} else {
+			volume = 0f;
+		}
+		musicSource.volume = volume;
+	}
 
 	public void PlaySFX(AudioClip sfx, float volume = 0.7f){
 		if (sfx != null)

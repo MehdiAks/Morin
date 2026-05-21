@@ -20,12 +20,37 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField] private List<GameObject> options_pages = new List<GameObject>();
 	private int indice = 0;
 	public int save_compteur = 0;
+	public bool sound_on = true;
+	public bool music_on = true;
+	public bool sfx_on = true;
+
+	public static PauseMenu instance = null;
 	
 	void Start(){
 		UnshowOptions();
+		if (instance == null){
+			instance = this;
+		}
+		AudioManager.instance.PlayMusic(AudioManager.instance.music_list.music1, AudioManager.instance.volume, true);
 	}
 
-// To do: change scene name to the intro
+	void Update(){
+		if (Input.GetKeyDown(KeyCode.Escape)){
+			if (panel_pause.activeSelf){
+				ReturnToGame();
+			}
+			else{
+				Pause();
+			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.P)){
+			if (!panel_pause.activeSelf){
+				Pause();
+			}
+		}
+	}
+
 	public void ReturnToGame(){
 		panel_pause.SetActive(false);
 	}
@@ -41,6 +66,10 @@ public class PauseMenu : MonoBehaviour
 		indice = 0;
 		options_pages[indice].SetActive(true);
 
+		main_sound_off.SetActive(!sound_on);
+		sfx_sound_off.SetActive(!sfx_on);
+		music_sound_off.SetActive(!music_on);
+
 		save_1.SetActive(false);
 		save_2.SetActive(false);
 		save_3.SetActive(false);
@@ -48,21 +77,16 @@ public class PauseMenu : MonoBehaviour
 		if (PlayerPrefs.GetInt("SalleDevinette") == 1) {
 			save_1.SetActive(true);
 			save_compteur += 1;	}
-			Debug.Log("Salle Devinette: " + PlayerPrefs.GetInt("SalleDevinette"));
 		if (PlayerPrefs.GetInt("SalleTuyau") == 1) {
 			save_2.SetActive(true);
 			save_compteur += 1;	}
-			Debug.Log("Salle Tuyau: " + PlayerPrefs.GetInt("SalleTuyau"));
 		if (PlayerPrefs.GetInt("SalleParcours") == 1) {
 			save_3.SetActive(true);
 			save_compteur += 1;	}
-			Debug.Log("Salle Parcours: " + PlayerPrefs.GetInt("SalleParcours"));
 		
-		Debug.Log("Compteur: " + save_compteur);
 		compteur.GetComponent<TMP_Text>().SetText("Enigmes résolues: " + save_compteur.ToString() + "/3");
 	}
 
-	
 	public void UnshowOptions(){
 		panel_options.SetActive(false);
 	}
@@ -94,19 +118,28 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	public void SoundMain(){
-
+			AudioManager.instance.SetMain(sound_on);
+			sound_on = !sound_on;
+			sfx_on = !sound_on;
+			music_on = !sound_on;
+			main_sound_off.SetActive(sound_on);
+			sfx_sound_off.SetActive(sound_on);
+			music_sound_off.SetActive(sound_on);
 	}
 
-	public void SoundVoice(){
-
-	}
+	//public void SoundVoice(){
+	//}
 
 	public void SoundFX(){
-
+		AudioManager.instance.SetSFX(sfx_on);
+		sfx_on = !sfx_on;
+		sfx_sound_off.SetActive(sfx_on);
 	}
 
 	public void SoundMusic(){
-
+		AudioManager.instance.SetMusic(music_on);
+		music_on = !music_on;
+		music_sound_off.SetActive(music_on);
 	}
 
 	public void EtatSalle(string Salle, bool Valide){

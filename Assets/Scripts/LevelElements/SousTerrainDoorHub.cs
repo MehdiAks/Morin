@@ -10,6 +10,27 @@ public class SousTerrainDoorHub : MonoBehaviour
         public string label;
         public Transform doorPoint;
         public string sceneName;
+        public bool requireAllRoomsValidated;
+    }
+
+    [Serializable]
+    private class ValidationLightConfig
+    {
+        public string label;
+        public Light pointLight;
+        [Min(0f)] public float rangeWhenNotValidated = 10f;
+        [Min(0f)] public float rangeWhenValidated = 25f;
+        public bool isValidated;
+
+        public void ApplyRange()
+        {
+            if (pointLight == null)
+            {
+                return;
+            }
+
+            pointLight.range = isValidated ? rangeWhenValidated : rangeWhenNotValidated;
+        }
     }
 
     [Header("Setup")]
@@ -17,6 +38,11 @@ public class SousTerrainDoorHub : MonoBehaviour
     [SerializeField] private LayerMask doorLayerMask = ~0;
     [SerializeField] private float interactionDistance = 4f;
     [SerializeField] private DoorConfig[] doors = new DoorConfig[5];
+
+    [Header("Validation des salles")]
+    [SerializeField] private ValidationLightConfig labyrintheValidationLight;
+    [SerializeField] private ValidationLightConfig electriqueValidationLight;
+    [SerializeField] private ValidationLightConfig devinetteValidationLight;
 
     [Header("UI")]
     [Tooltip("Canvas / panel \"Press E\" à afficher quand une porte est visée.")]
@@ -30,6 +56,8 @@ public class SousTerrainDoorHub : MonoBehaviour
         {
             playerCamera = Camera.main;
         }
+
+        RefreshRoomValidationState();
 
         HidePrompt();
     }
@@ -50,7 +78,7 @@ public class SousTerrainDoorHub : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                LoadDoorScene(currentDoor);
+                TryLoadDoorScene(currentDoor);
             }
         }
         else
@@ -91,8 +119,14 @@ public class SousTerrainDoorHub : MonoBehaviour
         return null;
     }
 
-    private static void LoadDoorScene(DoorConfig door)
+    private void TryLoadDoorScene(DoorConfig door)
     {
+        if (door.requireAllRoomsValidated && !AreAllRoomsValidated())
+        {
+            Debug.Log("La porte finale est verrouillée : validez Labyrinthe, Electrique et Devinette.");
+            return;
+        }
+
         if (string.IsNullOrWhiteSpace(door.sceneName))
         {
             Debug.LogWarning($"La porte '{door.label}' n'a pas de sceneName.");
@@ -100,6 +134,26 @@ public class SousTerrainDoorHub : MonoBehaviour
         }
 
         SceneManager.LoadScene(door.sceneName);
+    }
+
+    private void RefreshRoomValidationState()
+    {
+        GameProgress.LoadSave();
+
+        labyrintheValidationLight.isValidated = GameProgress.SalleParcoursValidee;
+        electriqueValidationLight.isValidated = GameProgress.SalleTuyauValidee;
+        devinetteValidationLight.isValidated = GameProgress.SalleDevinetteValidee;
+
+        labyrintheValidationLight.ApplyRange();
+        electriqueValidationLight.ApplyRange();
+        devinetteValidationLight.ApplyRange();
+    }
+
+    private static bool AreAllRoomsValidated()
+    {
+        return GameProgress.SalleParcoursValidee
+            && GameProgress.SalleTuyauValidee
+            && GameProgress.SalleDevinetteValidee;
     }
 
     private void ShowPrompt()
