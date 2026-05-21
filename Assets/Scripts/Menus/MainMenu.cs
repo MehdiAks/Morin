@@ -16,6 +16,9 @@ public class MainMenu : MonoBehaviour
 //	[SerializeField] private GameObject voice_sound_off;
 	[SerializeField] private GameObject sfx_sound_off;
 	[SerializeField] private GameObject music_sound_off;
+	[SerializeField] private GameObject main_sound_button;
+	[SerializeField] private GameObject sfx_sound_button;
+	[SerializeField] private GameObject music_sound_button;
 	[SerializeField] private GameObject compteur;
 	[SerializeField] private List<GameObject> options_pages = new List<GameObject>();
 	private int indice = 0;
