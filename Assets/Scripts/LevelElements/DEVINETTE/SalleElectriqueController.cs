@@ -64,6 +64,7 @@ public class SalleElectriqueController : MonoBehaviour
             {
                 puzzleSolved = true;
                 GameProgress.SalleTuyauValidee = true;
+                GameProgress.SaveRoomValidation();
                 PlaySfx(solvedSfx);
                 Debug.Log("Salle Electrique validée !");
             }

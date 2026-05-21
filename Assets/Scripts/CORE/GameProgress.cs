@@ -14,4 +14,11 @@ public static class GameProgress
         SalleTuyauValidee = (PlayerPrefs.GetInt("SalleTuyau") == 1);
         SalleParcoursValidee = (PlayerPrefs.GetInt("SalleParcours") == 1);
     }
+
+    public static void SaveRoomValidation(){
+        PlayerPrefs.SetInt("SalleDevinette", SalleDevinetteValidee ? 1 : 0);
+        PlayerPrefs.SetInt("SalleTuyau", SalleTuyauValidee ? 1 : 0);
+        PlayerPrefs.SetInt("SalleParcours", SalleParcoursValidee ? 1 : 0);
+        PlayerPrefs.Save();
+    }
 }

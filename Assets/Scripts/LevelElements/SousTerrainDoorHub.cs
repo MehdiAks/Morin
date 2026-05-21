@@ -18,8 +18,8 @@ public class SousTerrainDoorHub : MonoBehaviour
     {
         public string label;
         public Light pointLight;
-        [Min(0f)] public float rangeWhenNotValidated = 10f;
-        [Min(0f)] public float rangeWhenValidated = 25f;
+        [Min(0f)] public float rangeWhenNotValidated = 0f;
+        [Min(0f)] public float rangeWhenValidated = 10f;
         public bool isValidated;
 
         public void ApplyRange()
