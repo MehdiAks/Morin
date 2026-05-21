@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject panel_options;
 	[SerializeField] private GameObject save_1;
 	[SerializeField] private GameObject save_2;
-//	[SerializeField] private GameObject save_3;
+	[SerializeField] private GameObject save_3;
 	[SerializeField] private GameObject main_sound_off;
 //	[SerializeField] private GameObject voice_sound_off;
 	[SerializeField] private GameObject sfx_sound_off;
@@ -53,7 +53,7 @@ public class MainMenu : MonoBehaviour
 
 		save_1.SetActive(false);
 		save_2.SetActive(false);
-//		save_3.SetActive(false);
+		save_3.SetActive(false);
 		// update tracker menu sauvegarde
 		if (PlayerPrefs.GetInt("SalleParcours") == 1) {
 			save_1.SetActive(true);
@@ -61,11 +61,11 @@ public class MainMenu : MonoBehaviour
 		if (PlayerPrefs.GetInt("SalleTuyau") == 1) {
 			save_2.SetActive(true);
 			save_compteur += 1;	}
-//		if (PlayerPrefs.GetInt("SalleDevinette") == 1) {
-//			save_3.SetActive(true);
-//			save_compteur += 1;	}
+		if (PlayerPrefs.GetInt("SalleDevinette") == 1) {
+			save_3.SetActive(true);
+			save_compteur += 1;	}
 		
-		compteur.GetComponent<TMP_Text>().SetText("Enigmes résolues: " + save_compteur.ToString() + "/2");
+		compteur.GetComponent<TMP_Text>().SetText("Enigmes résolues: " + save_compteur.ToString() + "/3");
 	}
 	
 
