@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -47,8 +48,12 @@ public class SousTerrainDoorHub : MonoBehaviour
     [Header("UI")]
     [Tooltip("Canvas / panel \"Press E\" à afficher quand une porte est visée.")]
     [SerializeField] private GameObject pressECanvas;
+    [Tooltip("Canvas / panel à afficher quelques secondes si la porte finale est verrouillée.")]
+    [SerializeField] private GameObject lockedDoorCanvas;
+    [SerializeField, Min(0f)] private float lockedDoorCanvasDuration = 5f;
 
     private DoorConfig currentDoor;
+    private Coroutine lockedDoorCanvasCoroutine;
 
     private void Start()
     {
@@ -60,6 +65,7 @@ public class SousTerrainDoorHub : MonoBehaviour
         RefreshRoomValidationState();
 
         HidePrompt();
+        HideLockedDoorCanvas();
     }
 
     private void Update()
@@ -124,6 +130,7 @@ public class SousTerrainDoorHub : MonoBehaviour
         if (door.requireAllRoomsValidated && !AreAllRoomsValidated())
         {
             Debug.Log("La porte finale est verrouillée : validez Labyrinthe, Electrique et Devinette.");
+            ShowLockedDoorCanvasTemporarily();
             return;
         }
 
@@ -170,6 +177,37 @@ public class SousTerrainDoorHub : MonoBehaviour
         {
             pressECanvas.SetActive(false);
         }
+    }
+
+    private void HideLockedDoorCanvas()
+    {
+        if (lockedDoorCanvas != null && lockedDoorCanvas.activeSelf)
+        {
+            lockedDoorCanvas.SetActive(false);
+        }
+    }
+
+    private void ShowLockedDoorCanvasTemporarily()
+    {
+        if (lockedDoorCanvas == null)
+        {
+            return;
+        }
+
+        if (lockedDoorCanvasCoroutine != null)
+        {
+            StopCoroutine(lockedDoorCanvasCoroutine);
+        }
+
+        lockedDoorCanvasCoroutine = StartCoroutine(ShowLockedDoorCanvasRoutine());
+    }
+
+    private IEnumerator ShowLockedDoorCanvasRoutine()
+    {
+        lockedDoorCanvas.SetActive(true);
+        yield return new WaitForSeconds(lockedDoorCanvasDuration);
+        lockedDoorCanvas.SetActive(false);
+        lockedDoorCanvasCoroutine = null;
     }
 
     private void OnDrawGizmosSelected()
