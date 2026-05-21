@@ -107,6 +107,15 @@ public class MainMenu : MonoBehaviour
 
 	public void SoundMain(){
 			AudioManager.instance.SetMain(sound_on);
+			if (sound_on) {
+				main_sound_button.GetComponent<TMP_Text>().SetText("Activé");
+				sfx_sound_button.GetComponent<TMP_Text>().SetText("Activé");
+				music_sound_button.GetComponent<TMP_Text>().SetText("Activé");
+			} else {
+				main_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
+				sfx_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
+				music_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
+			}
 			sound_on = !sound_on;
 			sfx_on = !sound_on;
 			music_on = !sound_on;
@@ -120,12 +129,22 @@ public class MainMenu : MonoBehaviour
 
 	public void SoundFX(){
 		AudioManager.instance.SetSFX(sfx_on);
+		if (sfx_on) {
+			sfx_sound_button.GetComponent<TMP_Text>().SetText("Activé");
+		} else {
+			sfx_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
+			}
 		sfx_on = !sfx_on;
 		sfx_sound_off.SetActive(sfx_on);
 	}
 
 	public void SoundMusic(){
 		AudioManager.instance.SetMusic(music_on);
+		if (music_on) {
+			music_sound_button.GetComponent<TMP_Text>().SetText("Activé");
+		} else {
+			music_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
+			}
 		music_on = !music_on;
 		music_sound_off.SetActive(music_on);
 	}

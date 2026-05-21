@@ -16,6 +16,9 @@ public class PauseMenu : MonoBehaviour
 //	[SerializeField] private GameObject voice_sound_off;
 	[SerializeField] private GameObject sfx_sound_off;
 	[SerializeField] private GameObject music_sound_off;
+	[SerializeField] private GameObject main_sound_button;
+	[SerializeField] private GameObject sfx_sound_button;
+	[SerializeField] private GameObject music_sound_button;
 	[SerializeField] private GameObject compteur;
 	[SerializeField] private List<GameObject> options_pages = new List<GameObject>();
 	private int indice = 0;
@@ -74,9 +77,9 @@ public class PauseMenu : MonoBehaviour
 		indice = 0;
 		options_pages[indice].SetActive(true);
 
-		main_sound_off.SetActive(sound_on);
-		sfx_sound_off.SetActive(sfx_on);
-		music_sound_off.SetActive(music_on);
+		main_sound_off.SetActive(!sound_on);
+		sfx_sound_off.SetActive(!sfx_on);
+		music_sound_off.SetActive(!music_on);
 
 		save_1.SetActive(false);
 		save_2.SetActive(false);
@@ -127,6 +130,15 @@ public class PauseMenu : MonoBehaviour
 
 	public void SoundMain(){
 			AudioManager.instance.SetMain(sound_on);
+			if (sound_on) {
+				main_sound_button.GetComponent<TMP_Text>().SetText("Activé");
+				sfx_sound_button.GetComponent<TMP_Text>().SetText("Activé");
+				music_sound_button.GetComponent<TMP_Text>().SetText("Activé");
+			} else {
+				main_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
+				sfx_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
+				music_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
+			}
 			sound_on = !sound_on;
 			sfx_on = !sound_on;
 			music_on = !sound_on;
@@ -140,12 +152,22 @@ public class PauseMenu : MonoBehaviour
 
 	public void SoundFX(){
 		AudioManager.instance.SetSFX(sfx_on);
+		if (sfx_on) {
+			sfx_sound_button.GetComponent<TMP_Text>().SetText("Activé");
+		} else {
+			sfx_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
+			}
 		sfx_on = !sfx_on;
 		sfx_sound_off.SetActive(sfx_on);
 	}
 
 	public void SoundMusic(){
 		AudioManager.instance.SetMusic(music_on);
+		if (music_on) {
+			music_sound_button.GetComponent<TMP_Text>().SetText("Activé");
+		} else {
+			music_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
+			}
 		music_on = !music_on;
 		music_sound_off.SetActive(music_on);
 	}
