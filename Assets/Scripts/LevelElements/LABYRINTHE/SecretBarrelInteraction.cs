@@ -16,7 +16,7 @@ public class SecretBarrelInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.E))
+        if (!Input.GetKeyDown(KeyCode.H))
         {
             return;
         }

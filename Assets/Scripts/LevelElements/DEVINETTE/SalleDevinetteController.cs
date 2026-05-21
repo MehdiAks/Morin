@@ -6,7 +6,7 @@ public class SalleDevinetteController : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float interactionDistance = 3f;
     [SerializeField] private LayerMask interactionMask = ~0;
-    [SerializeField] private KeyCode interactionKey = KeyCode.E;
+    [SerializeField] private KeyCode interactionKey = KeyCode.H;
 
     [Header("UI")]
     [SerializeField] private GameObject pressECanvas;
