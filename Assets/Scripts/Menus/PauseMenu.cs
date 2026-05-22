@@ -145,9 +145,9 @@ public class PauseMenu : MonoBehaviour
 				sfx_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
 				music_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
 			}
-		main_sound_off.SetActive(sound_on);
-		sfx_sound_off.SetActive(sound_on);
-		music_sound_off.SetActive(sound_on);
+		main_sound_off.SetActive(!sound_on);
+		sfx_sound_off.SetActive(!sound_on);
+		music_sound_off.SetActive(!sound_on);
 	}
 
 	//public void SoundVoice(){
@@ -161,7 +161,7 @@ public class PauseMenu : MonoBehaviour
 		} else {
 			sfx_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
 			}
-		sfx_sound_off.SetActive(sfx_on);
+		sfx_sound_off.SetActive(!sfx_on);
 	}
 
 	public void SoundMusic(){
@@ -180,7 +180,7 @@ public class PauseMenu : MonoBehaviour
 	}
 
 	public void Sauvegarde(){
-	//	EtatSalle("SalleDevinette", GameProgress.SalleDevinetteValidee);
+		EtatSalle("SalleDevinette", GameProgress.SalleDevinetteValidee);
 		EtatSalle("SalleTuyau", GameProgress.SalleTuyauValidee);
 		EtatSalle("SalleParcours", GameProgress.SalleParcoursValidee);
 	}
