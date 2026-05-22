@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SalleDevinetteController : MonoBehaviour
 {
@@ -18,6 +19,13 @@ public class SalleDevinetteController : MonoBehaviour
     [Header("Puzzle")]
     [Tooltip("Renseigner les 5 objets dans l'ordre attendu.")]
     [SerializeField] private DevinetteInteractable[] orderedObjects;
+
+
+    [Header("Sortie")]
+    [Tooltip("Objet de la porte de sortie (ex: PORTE).")]
+    [SerializeField] private Transform exitDoor;
+    [SerializeField] private string exitSceneName;
+    [SerializeField] private bool requirePuzzleSolvedForExit = true;
 
     [Header("Audio")]
     [SerializeField] private AudioClip goodOrderSfx;
@@ -47,21 +55,58 @@ public class SalleDevinetteController : MonoBehaviour
 
     private void Update()
     {
-        if (GameProgress.SalleDevinetteValidee)
+        bool puzzleSolved = GameProgress.SalleDevinetteValidee;
+        bool canUseExit = !requirePuzzleSolvedForExit || puzzleSolved;
+
+        DevinetteInteractable lookedInteractable = puzzleSolved ? null : GetLookedInteractable();
+        bool isLookingAtExitDoor = canUseExit && IsLookingAtExitDoor();
+
+        SetPressEVisible(lookedInteractable != null || isLookingAtExitDoor);
+
+        if (!Input.GetKeyDown(interactionKey))
         {
-            SetPressEVisible(false);
             return;
         }
 
-        DevinetteInteractable lookedInteractable = GetLookedInteractable();
-        SetPressEVisible(lookedInteractable != null);
-
-        if (lookedInteractable == null || !Input.GetKeyDown(interactionKey))
+        if (lookedInteractable != null)
         {
+            TryInteract(lookedInteractable);
             return;
         }
 
-        TryInteract(lookedInteractable);
+        if (isLookingAtExitDoor)
+        {
+            TryLoadExitScene();
+        }
+    }
+
+
+    private bool IsLookingAtExitDoor()
+    {
+        if (exitDoor == null || playerCamera == null)
+        {
+            return false;
+        }
+
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+
+        if (!Physics.Raycast(ray, out RaycastHit hit, interactionDistance, interactionMask))
+        {
+            return false;
+        }
+
+        return hit.transform == exitDoor || hit.transform.IsChildOf(exitDoor);
+    }
+
+    private void TryLoadExitScene()
+    {
+        if (string.IsNullOrWhiteSpace(exitSceneName))
+        {
+            Debug.LogWarning("SalleDevinetteController: exitSceneName est vide.");
+            return;
+        }
+
+        SceneManager.LoadScene(exitSceneName);
     }
 
     private DevinetteInteractable GetLookedInteractable()
