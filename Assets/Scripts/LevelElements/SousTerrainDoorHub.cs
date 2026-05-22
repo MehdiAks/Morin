@@ -134,6 +134,12 @@ public class SousTerrainDoorHub : MonoBehaviour
             return;
         }
 
+        if (door.requireAllRoomsValidated && AreAllRoomsValidated())
+        {
+            SceneManager.LoadScene("FIN");
+            return;
+        }
+
         if (string.IsNullOrWhiteSpace(door.sceneName))
         {
             Debug.LogWarning($"La porte '{door.label}' n'a pas de sceneName.");

@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour
 {
 	[SerializeField] private GameObject panel_credits;
     [SerializeField] private GameObject panel_options;
+	[SerializeField] private GameObject panel_main;
+	[SerializeField] private GameObject start_screen;
 	[SerializeField] private GameObject save_1;
 	[SerializeField] private GameObject save_2;
 	[SerializeField] private GameObject save_3;
@@ -29,14 +31,23 @@ public class MainMenu : MonoBehaviour
 
 
 	void Start(){
+		panel_main.SetActive(false);
+		start_screen.SetActive(true);
 		UnshowOptions();
 		UnshowCredits();
 		if (GameProgress.PremierOuverture){
 			GameProgress.PremierOuverture = false;	}
 			else {
 			GameProgress.LoadSave();	}
-		
 	}
+
+	void Update()
+    { 
+        if (Input.anyKeyDown && start_screen.activeSelf){
+			start_screen.SetActive(false);
+			panel_main.SetActive(true);
+        }
+    }
 
 	public void PlayGame(){
 		if (GameProgress.PremierOuverture){
