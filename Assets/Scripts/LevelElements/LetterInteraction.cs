@@ -14,6 +14,8 @@ public class LetterInteraction : MonoBehaviour
     [Tooltip("Canvas/panel affichant le contenu de la lettre.")]
     [SerializeField] private GameObject letterCanvas;
 
+    private bool isLooked = false;
+
     private bool isLetterOpen;
 
     private void Start()
@@ -46,7 +48,17 @@ public class LetterInteraction : MonoBehaviour
         }
 
         bool isLookingAtLetter = IsLookingAtLetter();
-        SetPromptVisible(isLookingAtLetter);
+        if(!isLookingAtLetter && isLooked)
+        {
+            isLooked = false;
+            SetPromptVisible(isLooked);
+        } else if (isLookingAtLetter)
+        {
+            isLooked = true;
+            SetPromptVisible(isLooked);
+        }
+
+        
 
         if (isLookingAtLetter && Input.GetKeyDown(interactionKey))
         {
