@@ -11,6 +11,7 @@ public class SalleDevinetteController : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject pressECanvas;
     [SerializeField] private GameObject solvedCanvas;
+    [SerializeField] private GameObject alreadySolvedCanvas;
     [SerializeField] private GameObject wrongOrderCanvas;
     [SerializeField] private float statusCanvasDuration = 3f;
 
@@ -34,8 +35,14 @@ public class SalleDevinetteController : MonoBehaviour
 
         SetPressEVisible(false);
         SetStatusCanvasVisible(solvedCanvas, false);
+        SetStatusCanvasVisible(alreadySolvedCanvas, false);
         SetStatusCanvasVisible(wrongOrderCanvas, false);
         GameProgress.LoadSave();
+
+        if (GameProgress.SalleDevinetteValidee)
+        {
+            ShowStatusCanvas(alreadySolvedCanvas);
+        }
     }
 
     private void Update()
@@ -150,11 +157,16 @@ public class SalleDevinetteController : MonoBehaviour
         if (statusCanvasDuration > 0f)
         {
             CancelInvoke(nameof(HideSolvedCanvas));
+            CancelInvoke(nameof(HideAlreadySolvedCanvas));
             CancelInvoke(nameof(HideWrongOrderCanvas));
 
             if (canvas == solvedCanvas)
             {
                 Invoke(nameof(HideSolvedCanvas), statusCanvasDuration);
+            }
+            else if (canvas == alreadySolvedCanvas)
+            {
+                Invoke(nameof(HideAlreadySolvedCanvas), statusCanvasDuration);
             }
             else if (canvas == wrongOrderCanvas)
             {
@@ -166,6 +178,11 @@ public class SalleDevinetteController : MonoBehaviour
     private void HideSolvedCanvas()
     {
         SetStatusCanvasVisible(solvedCanvas, false);
+    }
+
+    private void HideAlreadySolvedCanvas()
+    {
+        SetStatusCanvasVisible(alreadySolvedCanvas, false);
     }
 
     private void HideWrongOrderCanvas()
