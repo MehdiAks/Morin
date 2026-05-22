@@ -10,6 +10,9 @@ public class SalleDevinetteController : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject pressECanvas;
+    [SerializeField] private GameObject solvedCanvas;
+    [SerializeField] private GameObject wrongOrderCanvas;
+    [SerializeField] private float statusCanvasDuration = 3f;
 
     [Header("Puzzle")]
     [Tooltip("Renseigner les 5 objets dans l'ordre attendu.")]
@@ -30,6 +33,8 @@ public class SalleDevinetteController : MonoBehaviour
         }
 
         SetPressEVisible(false);
+        SetStatusCanvasVisible(solvedCanvas, false);
+        SetStatusCanvasVisible(wrongOrderCanvas, false);
         GameProgress.LoadSave();
     }
 
@@ -100,12 +105,14 @@ public class SalleDevinetteController : MonoBehaviour
                 GameProgress.SaveRoomValidation();
                 Debug.Log("Salle Devinette validée !");
                 SetPressEVisible(false);
+                ShowStatusCanvas(solvedCanvas);
             }
         }
         else
         {
             ResetPuzzleProgress();
             PlaySfx(badOrderSfx);
+            ShowStatusCanvas(wrongOrderCanvas);
         }
     }
 
@@ -127,6 +134,50 @@ public class SalleDevinetteController : MonoBehaviour
         if (AudioManager.instance != null)
         {
             AudioManager.instance.PlaySFX(clip, sfxVolume);
+        }
+    }
+
+
+    private void ShowStatusCanvas(GameObject canvas)
+    {
+        if (canvas == null)
+        {
+            return;
+        }
+
+        SetStatusCanvasVisible(canvas, true);
+
+        if (statusCanvasDuration > 0f)
+        {
+            CancelInvoke(nameof(HideSolvedCanvas));
+            CancelInvoke(nameof(HideWrongOrderCanvas));
+
+            if (canvas == solvedCanvas)
+            {
+                Invoke(nameof(HideSolvedCanvas), statusCanvasDuration);
+            }
+            else if (canvas == wrongOrderCanvas)
+            {
+                Invoke(nameof(HideWrongOrderCanvas), statusCanvasDuration);
+            }
+        }
+    }
+
+    private void HideSolvedCanvas()
+    {
+        SetStatusCanvasVisible(solvedCanvas, false);
+    }
+
+    private void HideWrongOrderCanvas()
+    {
+        SetStatusCanvasVisible(wrongOrderCanvas, false);
+    }
+
+    private static void SetStatusCanvasVisible(GameObject canvas, bool value)
+    {
+        if (canvas != null && canvas.activeSelf != value)
+        {
+            canvas.SetActive(value);
         }
     }
 
