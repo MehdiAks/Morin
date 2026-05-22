@@ -1818,7 +1818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElectricalRotatableElement
   currentPosition: 3
-  targetPosition: 1
+  targetPosition: 2
   angleOffset: 0
 --- !u!1001 &207065954
 PrefabInstance:
@@ -14519,7 +14519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElectricalRotatableElement
   currentPosition: 0
-  targetPosition: 2
+  targetPosition: 0
   angleOffset: 0
 --- !u!1 &1497392277
 GameObject:
