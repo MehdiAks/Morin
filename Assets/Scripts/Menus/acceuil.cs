@@ -2,22 +2,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class intro : MonoBehaviour
+public class acceuil : MonoBehaviour
 {
 	[SerializeField] private List<GameObject> frames = new List<GameObject>();
 	[SerializeField] private GameObject btn_suivant;
-    [SerializeField] private GameObject btn_lancement;
+    [SerializeField] private GameObject intro;
     public int indice = 0;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (!GameProgress.PremierOuverture){
+            intro.SetActive(false);
+        } else {
+            intro.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+		    Cursor.visible = true;
+		    Time.timeScale = 0f;
+        }
+
         foreach (GameObject frame in frames)
 			{ frame.SetActive(false); }
         frames[indice].SetActive(true);
-        btn_suivant.SetActive(false);
-        btn_lancement.SetActive(false);
+        btn_suivant.SetActive(true);
     }
 
     // Update is called once per frame
@@ -28,17 +36,6 @@ public class intro : MonoBehaviour
         }
     }
 
-    public void start(){
-        btn_suivant.SetActive(true);
-        frames[indice].SetActive(false);
-        indice++;
-        frames[indice].SetActive(true);
-    }
-
-    public void lancer(){
-        SceneManager.LoadScene("ACCEUIL");
-    }
-
     public void suivant(){
         frames[indice].SetActive(false);
         indice++;
@@ -46,7 +43,10 @@ public class intro : MonoBehaviour
             frames[indice].SetActive(true);
         } else {
             btn_suivant.SetActive(false);
-            btn_lancement.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
+		    Cursor.visible = false;
+		    Time.timeScale = 1f;
+            intro.SetActive(false);
         }
     }
 }

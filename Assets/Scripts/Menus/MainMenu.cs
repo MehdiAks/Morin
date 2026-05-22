@@ -26,7 +26,8 @@ public class MainMenu : MonoBehaviour
 	public bool sound_on = true;
 	public bool music_on = true;
 	public bool sfx_on = true;
-	
+
+
 	void Start(){
 		UnshowOptions();
 		UnshowCredits();
@@ -34,10 +35,15 @@ public class MainMenu : MonoBehaviour
 			GameProgress.PremierOuverture = false;	}
 			else {
 			GameProgress.LoadSave();	}
+		
 	}
 
 	public void PlayGame(){
-		SceneManager.LoadScene("ACCEUIL");
+		if (GameProgress.PremierOuverture){
+			SceneManager.LoadScene("INTRO");
+		} else {
+			SceneManager.LoadScene("ACCEUIL");
+		}
 	}
 	
 	public void ShowOptions(){
