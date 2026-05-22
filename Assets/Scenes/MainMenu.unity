@@ -770,7 +770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &138292720
 RectTransform:
   m_ObjectHideFlags: 0
@@ -911,13 +911,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389096792}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 694732525}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: SoundMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389096794}
+      - m_Target: {fileID: 694732525}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389096794}
+      - m_Target: {fileID: 694732525}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -3764,7 +3764,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389096794}
+      - m_Target: {fileID: 694732525}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: NextPage
         m_Mode: 1
@@ -3826,6 +3826,7 @@ GameObject:
   - component: {fileID: 694732523}
   - component: {fileID: 694732522}
   - component: {fileID: 694732521}
+  - component: {fileID: 694732525}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3920,6 +3921,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &694732525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694732520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2f16a7dbdb149044b2bdc7c45677927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel_credits: {fileID: 1156974777}
+  panel_options: {fileID: 2100176248}
+  panel_main: {fileID: 1389096792}
+  start_screen: {fileID: 138292719}
+  save_1: {fileID: 1003430540}
+  save_2: {fileID: 93392551}
+  save_3: {fileID: 676097277}
+  main_sound_off: {fileID: 984566020}
+  sfx_sound_off: {fileID: 1073400917}
+  music_sound_off: {fileID: 898866583}
+  main_sound_button: {fileID: 363792420}
+  sfx_sound_button: {fileID: 2080209751}
+  music_sound_button: {fileID: 474897074}
+  compteur: {fileID: 543335480}
+  options_pages:
+  - {fileID: 1745098540}
+  - {fileID: 37459173}
+  - {fileID: 9551635}
+  save_compteur: 0
+  sound_on: 1
+  music_on: 1
+  sfx_on: 1
 --- !u!1 &696336733
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,7 +4264,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 715506437}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 694732525}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: SoundFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &715506437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4351,7 +4398,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389096794}
+      - m_Target: {fileID: 694732525}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: ShowCredits
         m_Mode: 1
@@ -4484,7 +4531,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389096794}
+      - m_Target: {fileID: 694732525}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: PreviousPage
         m_Mode: 1
@@ -5980,7 +6027,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1094189916}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 694732525}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: SoundMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1094189916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6224,7 +6283,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389096794}
+      - m_Target: {fileID: 694732525}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: UnshowCredits
         m_Mode: 1
@@ -6864,7 +6923,6 @@ GameObject:
   - component: {fileID: 1389096793}
   - component: {fileID: 1389096796}
   - component: {fileID: 1389096795}
-  - component: {fileID: 1389096794}
   m_Layer: 5
   m_Name: Panel Main
   m_TagString: Untagged
@@ -6895,38 +6953,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1389096794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389096792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f16a7dbdb149044b2bdc7c45677927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel_credits: {fileID: 1156974777}
-  panel_options: {fileID: 2100176248}
-  save_1: {fileID: 1003430540}
-  save_2: {fileID: 93392551}
-  save_3: {fileID: 676097277}
-  main_sound_off: {fileID: 984566020}
-  sfx_sound_off: {fileID: 1073400917}
-  music_sound_off: {fileID: 898866583}
-  main_sound_button: {fileID: 363792420}
-  sfx_sound_button: {fileID: 2080209751}
-  music_sound_button: {fileID: 474897074}
-  compteur: {fileID: 543335480}
-  options_pages:
-  - {fileID: 1745098540}
-  - {fileID: 37459173}
-  - {fileID: 9551635}
-  save_compteur: 0
-  sound_on: 1
-  music_on: 1
-  sfx_on: 1
 --- !u!114 &1389096795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7325,9 +7351,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389096794}
+      - m_Target: {fileID: 694732525}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: Sauvegarde
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9552,7 +9578,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389096794}
+      - m_Target: {fileID: 694732525}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: UnshowOptions
         m_Mode: 1
@@ -10183,7 +10209,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389096794}
+      - m_Target: {fileID: 694732525}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: ShowOptions
         m_Mode: 1
