@@ -49,12 +49,19 @@ public class PlayerController : MonoBehaviour
 
 	void OnEnable()
     {
+		if (controls == null)
+		{
+			controls = new PlayerControls();
+		}
 		controls.Enable();
     }
 
 	void OnDisable()
     {
-		controls.Disable();
+		if (controls != null)
+		{
+			controls.Disable();
+		}
     }
 
 	//Start
@@ -98,6 +105,11 @@ public class PlayerController : MonoBehaviour
 
 	private void UpdateInput()
     {
+		if (controls == null)
+		{
+			return;
+		}
+
 		moveInput = controls.Player.Move.ReadValue<Vector2>();
 		lookInput = controls.Player.Look.ReadValue<Vector2>();
 
