@@ -14505,8 +14505,8 @@ MonoBehaviour:
   - {fileID: 1143966737}
   - {fileID: 1631215218}
   - {fileID: 900911530}
-  goodOrderSfx: {fileID: 0}
-  badOrderSfx: {fileID: 0}
+  goodOrderSfx: {fileID: 8300000, guid: f03c61b495c02974db883e1314a33ed7, type: 3}
+  badOrderSfx: {fileID: 8300000, guid: 7987f201472a8c24f98b11882d58481a, type: 3}
   sfxVolume: 0.7
 --- !u!4 &866297677
 Transform:

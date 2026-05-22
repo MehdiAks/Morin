@@ -1529,8 +1529,8 @@ MonoBehaviour:
   exitDoor: {fileID: 814143787}
   exitSceneName: SOUS TERRAIN
   requirePuzzleSolvedForExit: 0
-  rotateSfx: {fileID: 0}
-  solvedSfx: {fileID: 0}
+  rotateSfx: {fileID: 8300000, guid: 6c3833a4fc83a4942968b726e4498a61, type: 3}
+  solvedSfx: {fileID: 8300000, guid: f03c61b495c02974db883e1314a33ed7, type: 3}
   sfxVolume: 0.7
 --- !u!4 &173842296
 Transform:
