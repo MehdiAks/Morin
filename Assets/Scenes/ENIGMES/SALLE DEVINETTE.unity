@@ -14920,6 +14920,7 @@ MonoBehaviour:
   interactionKey: 104
   pressECanvas: {fileID: 814882557}
   solvedCanvas: {fileID: 342156678}
+  alreadySolvedCanvas: {fileID: 0}
   wrongOrderCanvas: {fileID: 1582565724}
   statusCanvasDuration: 3
   orderedObjects:

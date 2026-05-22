@@ -19122,6 +19122,9 @@ MonoBehaviour:
     m_Bits: 4294967295
   interactionKey: 104
   pressECanvas: {fileID: 624096142}
+  solvedCanvas: {fileID: 0}
+  alreadySolvedCanvas: {fileID: 0}
+  statusCanvasDuration: 3
   puzzleElements: []
   exitDoor: {fileID: 219684663}
   exitSceneName: SOUS TERRAIN

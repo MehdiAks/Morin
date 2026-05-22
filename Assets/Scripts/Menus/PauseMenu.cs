@@ -172,7 +172,7 @@ public class PauseMenu : MonoBehaviour
 		} else {
 			music_sound_button.GetComponent<TMP_Text>().SetText("Désactivé");
 			}
-		music_sound_off.SetActive(music_on);
+		music_sound_off.SetActive(!music_on);
 	}
 
 	public void EtatSalle(string Salle, bool Valide){
