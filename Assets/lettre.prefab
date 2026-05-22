@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23391952014153268}
   - component: {fileID: 65695522028478050}
   m_Layer: 0
-  m_Name: book
+  m_Name: lettre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,8 +67,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e3d786db8246a4bd3bb9dc68fd47fe8b, type: 2}
-  - {fileID: 2100000, guid: e3d786db8246a4bd3bb9dc68fd47fe8b, type: 2}
+  - {fileID: 2100000, guid: 34d6d6e0601f71746a3f73b41dabe7db, type: 2}
+  - {fileID: 2100000, guid: d14ab62025729a14b811c155c96e7d35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,5 +111,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7794721, y: 0.3104143, z: 0.9189666}
-  m_Center: {x: 0, y: 0.055, z: 0}
+  m_Size: {x: 0.5794721, y: 0.11041435, z: 0.9189666}
+  m_Center: {x: 0, y: 0, z: 0}
