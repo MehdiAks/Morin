@@ -11,6 +11,9 @@ public class SalleElectriqueController : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject pressECanvas;
+    [SerializeField] private GameObject solvedCanvas;
+    [SerializeField] private GameObject alreadySolvedCanvas;
+    [SerializeField] private float statusCanvasDuration = 3f;
 
     [Header("Puzzle")]
     [Tooltip("Mettre ici les 12 éléments à orienter.")]
@@ -39,7 +42,15 @@ public class SalleElectriqueController : MonoBehaviour
         }
 
         SetPressEVisible(false);
-        puzzleSolved = false;
+        SetStatusCanvasVisible(solvedCanvas, false);
+        SetStatusCanvasVisible(alreadySolvedCanvas, false);
+
+        puzzleSolved = GameProgress.SalleTuyauValidee;
+
+        if (puzzleSolved)
+        {
+            ShowStatusCanvas(alreadySolvedCanvas);
+        }
     }
 
     private void Update()
@@ -66,6 +77,7 @@ public class SalleElectriqueController : MonoBehaviour
                 GameProgress.SalleTuyauValidee = true;
                 GameProgress.SaveRoomValidation();
                 PlaySfx(solvedSfx);
+                ShowStatusCanvas(solvedCanvas);
                 Debug.Log("Salle Electrique validée !");
             }
 
@@ -161,6 +173,49 @@ public class SalleElectriqueController : MonoBehaviour
         if (pressECanvas != null && pressECanvas.activeSelf != value)
         {
             pressECanvas.SetActive(value);
+        }
+    }
+
+    private void ShowStatusCanvas(GameObject canvas)
+    {
+        if (canvas == null)
+        {
+            return;
+        }
+
+        SetStatusCanvasVisible(canvas, true);
+
+        if (statusCanvasDuration > 0f)
+        {
+            CancelInvoke(nameof(HideSolvedCanvas));
+            CancelInvoke(nameof(HideAlreadySolvedCanvas));
+
+            if (canvas == solvedCanvas)
+            {
+                Invoke(nameof(HideSolvedCanvas), statusCanvasDuration);
+            }
+            else if (canvas == alreadySolvedCanvas)
+            {
+                Invoke(nameof(HideAlreadySolvedCanvas), statusCanvasDuration);
+            }
+        }
+    }
+
+    private void HideSolvedCanvas()
+    {
+        SetStatusCanvasVisible(solvedCanvas, false);
+    }
+
+    private void HideAlreadySolvedCanvas()
+    {
+        SetStatusCanvasVisible(alreadySolvedCanvas, false);
+    }
+
+    private static void SetStatusCanvasVisible(GameObject canvas, bool value)
+    {
+        if (canvas != null && canvas.activeSelf != value)
+        {
+            canvas.SetActive(value);
         }
     }
 }
