@@ -2157,51 +2157,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396644227}
   m_CullTransparentMesh: 1
---- !u!1001 &407849521
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4290439104894856, guid: f5a1bb1bf8641274c88db4c73f943ae4, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290439104894856, guid: f5a1bb1bf8641274c88db4c73f943ae4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.925
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290439104894856, guid: f5a1bb1bf8641274c88db4c73f943ae4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.362
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290439104894856, guid: f5a1bb1bf8641274c88db4c73f943ae4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.658
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290439104894856, guid: f5a1bb1bf8641274c88db4c73f943ae4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290439104894856, guid: f5a1bb1bf8641274c88db4c73f943ae4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290439104894856, guid: f5a1bb1bf8641274c88db4c73f943ae4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290439104894856, guid: f5a1bb1bf8641274c88db4c73f943ae4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f5a1bb1bf8641274c88db4c73f943ae4, type: 3}
 --- !u!1 &427704128
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,6 +3047,9 @@ MonoBehaviour:
     m_Bits: 4294967295
   interactionKey: 104
   pressECanvas: {fileID: 739875990}
+  solvedCanvas: {fileID: 0}
+  alreadySolvedCanvas: {fileID: 0}
+  statusCanvasDuration: 3
   puzzleElements: []
   exitDoor: {fileID: 1725950574}
   exitSceneName: SOUS TERRAIN
@@ -12477,7 +12435,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1393383179}
-  - {fileID: 407849521}
   - {fileID: 1548589766}
   - {fileID: 1244444749}
   - {fileID: 140515560}
